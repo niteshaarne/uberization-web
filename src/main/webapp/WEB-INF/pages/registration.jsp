@@ -3,9 +3,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registration</title>
-<link href="https://www.principalcdn.com/css/horizon/v2/horizon.min.css" rel="stylesheet">
+     <meta charset="utf-8">
+     <meta http-equiv="x-ua-compatible" content="ie=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="">
+     <meta name="author" content="">
+     <title></title>
+     <!-- Horizon CSS -->
+     <link href="https://www.principalcdn.com/css/horizon/v2/horizon.min.css" rel="stylesheet">
+     <!-- Application specific CSS -->
+     <link href="[URL TO APP CSS]" rel="stylesheet">
+     <!-- Optional favicon and apple/android homescreen icons -->
+     <meta name="mobile-web-app-capable" content="yes">
+     <link rel="shortcut icon" type="image/x-icon" href="https://www.principalcdn.com/css/horizon/v2/favicon.ico">
+     <link rel="shortcut icon" type="image/x-icon" href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -16,7 +27,11 @@
           </div>
         </div>
       </nav>
-<div align="center">
+      
+<div class="container">
+<div class ="row" >
+<div class="col-md-4"></div>
+<div class="col-md-4">      
 <form id="registration"  action="registrationService" name="registrationName" method="POST" >
 	<div class="form-group">
 	  <!-- <label for="exampleInputfirstName">First Name</label> -->
@@ -30,8 +45,15 @@
 	<div class="form-group">
     <!-- <label for="exampleInputmobileNumber">Mobile Number</label> -->
    <div class="input-w">
-    <input type="number" name="countrtyCode" formControlName="countrycode" ngDefaultControl class="form-control-alt" id="exampleInputcountrycode" placeholder="Country code" size="5">
-    <input type="number" name="mobileNumber" formControlName="mobileNumber" ngDefaultControl class="form-control-alt" id="exampleInputmobileNumber" placeholder="Enter mobile number" size="40">
+   <select name="countryCode" id="countryCode" class="form-control">
+	<option data-countryCode="US" value="1" Selected>USA (+1)</option>
+	<option data-countryCode="IN" value="91">India (+91)</option>
+	<optgroup label="Other countries">
+		<option data-countryCode="GB" value="44" >UK (+44)</option>
+		</optgroup>
+		</select>
+    <!-- <input type="number" name="countrtyCode" formControlName="countrycode" ngDefaultControl class="form-control-alt" id="exampleInputcountrycode" placeholder="Country code" size="5"> -->
+    <input style="margin-top:4%;" type="number" name="mobileNumber" formControlName="mobileNumber" ngDefaultControl class="form-control-alt" id="exampleInputmobileNumber" placeholder="Enter mobile number" size="40">
   </div>
   </div>
   <div class="form-group">
@@ -63,6 +85,7 @@
 	<input type="submit" [disabled] = "!formdata.valid"  class="btn btn-primary" value="Next">
   </form>
 </div>
+  </div>
 </body>
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>
 </html>

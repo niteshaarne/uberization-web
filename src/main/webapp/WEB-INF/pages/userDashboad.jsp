@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Dashboard</title>
+<link href="https://www.principalcdn.com/css/horizon/v2/horizon.min.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -15,6 +16,6 @@
           </div>
         </div>
       </nav>
-Welcome
 </body>
+<script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>
 </html>
