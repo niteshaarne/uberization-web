@@ -31,8 +31,13 @@
 <div class="container">
 <div class ="row" >
 <div class="col-md-4"></div>
-<div class="col-md-4">      
-<form id="registration"  action="registrationService" name="registrationName" method="POST" >
+<div class="col-md-4">    
+	
+	<div class="col-md-4"></div>
+	<div class="col-md-4"><h4 style="color : #0076cf;"> Registration</h4></div>
+	<div class="col-md-4"></div>
+	 
+<form id="registration"  action="registrationService" name="registrationName" method="POST">
 	<div class="form-group">
 	  <!-- <label for="exampleInputfirstName">First Name</label> -->
 	  <input type="text" name="firstName" formControlName="firstName" ngDefaultControl class="form-control-alt" id="exampleInputfirstName" placeholder="Enter first name" size="45">
@@ -45,7 +50,7 @@
 	<div class="form-group">
     <!-- <label for="exampleInputmobileNumber">Mobile Number</label> -->
    <div class="input-w">
-   <select name="countryCode" id="countryCode" class="form-control">
+   <select name="countryCode" id="countryCodes" class="form-control">
 	<option data-countryCode="US" value="1" Selected>USA (+1)</option>
 	<option data-countryCode="IN" value="91">India (+91)</option>
 	<optgroup label="Other countries">
@@ -74,15 +79,15 @@
     </div>
     <div class="checkbox styled-checkbox">
       <input type="checkbox" name="medicalReview" id="checkboxLegend2" formControlName="medicalReview" >
-      <label for="checkboxLegend2">Medical review</label>
+      <label for="checkboxLegend2">Medical Review</label>
     </div>
   </fieldset>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
       <label for="exampleInputFile">Upload your resume</label>
-      <input type="file" id="exampleInputFile">
-  </div>
-	<input type="submit" [disabled] = "!formdata.valid"  class="btn btn-primary" value="Next">
+      <input type="file" id="exampleInputFile" name="resume">
+  </div> -->
+	<input type="submit" [disabled] = "!formdata.valid"  class="btn btn-primary" value="Submit">
   </form>
 </div>
   </div>

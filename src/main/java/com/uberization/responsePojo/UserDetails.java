@@ -2,7 +2,10 @@ package com.uberization.responsePojo;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.uberization.pojo.SkillSet;
+import com.uberization.util.SkillEnum;
 
 public class UserDetails {
 	
@@ -11,9 +14,23 @@ public class UserDetails {
 	private String firstName;
 	private String lastName;
 	private String contactNumber;
-	private List<SkillSet> skillSetList;
+	private MultipartFile resume;
+	//private List<SkillSet> skillSetList;
+	private List<SkillEnum> skillSet;
 	private String userType;
 	
+	public MultipartFile getResume() {
+		return resume;
+	}
+	public void setResume(MultipartFile resume) {
+		this.resume = resume;
+	}
+	public List<SkillEnum> getSkillSet() {
+		return skillSet;
+	}
+	public void setSkillSet(List<SkillEnum> skillSet) {
+		this.skillSet = skillSet;
+	}
 	/**
 	 * @return the userType
 	 */
@@ -26,18 +43,7 @@ public class UserDetails {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-	/**
-	 * @return the skillSetList
-	 */
-	public List<SkillSet> getSkillSetList() {
-		return skillSetList;
-	}
-	/**
-	 * @param skillSetList the skillSetList to set
-	 */
-	public void setSkillSetList(List<SkillSet> skillSetList) {
-		this.skillSetList = skillSetList;
-	}
+	
 	/**
 	 * @return the email
 	 */
@@ -98,18 +104,6 @@ public class UserDetails {
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "UserDetails [email=" + email + ", password=" + password + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", contactNumber=" + contactNumber + ", skillSetList=" + skillSetList + ", userType="
-				+ userType + "]";
-	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -119,13 +113,11 @@ public class UserDetails {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((skillSetList == null) ? 0 : skillSetList.hashCode());
+		result = prime * result + ((resume == null) ? 0 : resume.hashCode());
+		result = prime * result + ((skillSet == null) ? 0 : skillSet.hashCode());
 		result = prime * result + ((userType == null) ? 0 : userType.hashCode());
 		return result;
 	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -160,10 +152,15 @@ public class UserDetails {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (skillSetList == null) {
-			if (other.skillSetList != null)
+		if (resume == null) {
+			if (other.resume != null)
 				return false;
-		} else if (!skillSetList.equals(other.skillSetList))
+		} else if (!resume.equals(other.resume))
+			return false;
+		if (skillSet == null) {
+			if (other.skillSet != null)
+				return false;
+		} else if (!skillSet.equals(other.skillSet))
 			return false;
 		if (userType == null) {
 			if (other.userType != null)
@@ -171,6 +168,12 @@ public class UserDetails {
 		} else if (!userType.equals(other.userType))
 			return false;
 		return true;
+	}
+	@Override
+	public String toString() {
+		return "UserDetails [email=" + email + ", password=" + password + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", contactNumber=" + contactNumber + ", resume=" + resume + ", skillSet=" + skillSet
+				+ ", userType=" + userType + "]";
 	}
 	
 }

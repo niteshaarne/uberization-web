@@ -42,7 +42,7 @@ public class UberClient {
 			skillSet.add(skillSet1);
 			skillSet.add(skillSet2);
 			
-			userDetails.setSkillSetList(skillSet);
+			//userDetails.setSkillSetList(skillSet);
 			
 			
 		}catch (Exception e) {
