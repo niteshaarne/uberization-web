@@ -8,18 +8,27 @@
  <link href="https://www.principalcdn.com/css/horizon/v2/horizon.min.css" rel="stylesheet">
 </head>
 <body>
+
+<nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-principal-brand" href="#">
+            </a>
+          </div>
+        </div>
+      </nav>
 <div align="center">
-<form role="form" [formGroup]="formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+<form id="login"  action="loginService" name="loginName" method="POST">
   <div class="form-group">
     <!-- <label for="exampleInputEmail1">Email address</label> -->
-    <input type="email" class="form-control-alt" id="exampleInputEmail1" placeholder="Enter email" size="45"  formControlName="emailid">
+    <input type="email" required name ="emailId"  class="form-control-alt" id="exampleInputEmail1" placeholder="Enter email" size="45"  formControlName="emailid">
   </div>
   <div class="form-group">
     <!-- <label for="exampleInputPassword1">Password</label> -->
-    <input type="password" class="form-control-alt" id="exampleInputPassword1" placeholder="Password" size="45" formControlName="passwd">
+    <input type="password" required name="password" class="form-control-alt" id="exampleInputPassword1" placeholder="Password" size="45" formControlName="passwd">
   </div>
-  <input type="submit" [disabled] = "!formdata.valid"  class="btn btn-primary" value="Login">
-   <a routerLink = "/registration"  class="btn btn-link">Sign up</a>
+  <input type="submit" class="btn btn-primary" value="Login">
+   <a href="registration" class="btn btn-link">Sign up</a>
   </form>
   </div>
 </body>
