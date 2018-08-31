@@ -135,4 +135,27 @@ public class UserController {
 	}
 	
 	
+	/**
+	 * @param httpServletRequest
+	 * @return
+	 */
+	@RequestMapping(value="/notification",method=RequestMethod.GET)
+	public ModelAndView getNotifications(HttpServletRequest httpServletRequest) {
+		ModelAndView model = new ModelAndView("userDashboard");
+		ArrayList<JobDetailsUser> jobDetailsUserList;
+		try {
+			jobDetailsUserList = getJobDetailsForNotifications(new UserDetails());
+        	model.addObject("jobDetailsUserList",jobDetailsUserList);
+        	System.out.println("User login...");
+			
+		}catch (Exception e) {
+			logger.error(" Exception in getNotifications() for User method ...", e);
+			model = new ModelAndView("userDashboard");
+	        model.addObject("errorMsg", "Error while getting notification details.");
+		}
+		return model;
+	}
+	
+	
+	
 }

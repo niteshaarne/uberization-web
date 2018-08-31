@@ -18,27 +18,18 @@
 	href="https://www.principalcdn.com/css/horizon/v2/favicon.ico">
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
+	
+	
 <script type="text/javascript">
-function defineStateProcessSec(state) {
-	var st = state.value;
-	var cdStatus = st.split(',');
-	$('#state_disclaimer_ac').hide();
-	if(cdStatus[1]==0) {
-		//pop up
-		autoModal('#popup-message-wrapper-sec', true);
-		$('#profile_add_contact_sendInvite_btn').attr('disabled', 'disabled');
-		$("#state_US_ac").val("");			
-	} else if(cdStatus[1]==1) {
-		// disclaimer
-		$('#state_disclaimer_ac').show();
-		$('#profile_add_contact_sendInvite_btn').removeAttr('disabled');
-	}
-	else
-		$('#profile_add_contact_sendInvite_btn').removeAttr('disabled');
-}
+$( document ).ready(function() {
+	$("#userwork").addClass("active");
+	$("#feedbackAndRatings").removeClass("active");
+	$("#userNotification").removeClass("active");
+	
+});
 </script>
 
-	
+
 </head>
 <body>
 <%@ include file = "userNavBar.jsp" %>
