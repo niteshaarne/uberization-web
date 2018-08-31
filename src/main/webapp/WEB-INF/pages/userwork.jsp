@@ -19,6 +19,27 @@
 	href="https://www.principalcdn.com/css/horizon/v2/favicon.ico">
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
+<script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>	
+<script type="text/javascript">
+
+$( document ).ready(function() {
+	$("#userwork").addClass("active");
+	$("#feedbackAndRating").removeClass("active");
+	$("#userNotification").removeClass("active");
+	
+});
+
+function markComplete(ele){
+	var id = ele.id;
+	var loopCounter = id.substr(id.indexOf("_") + 1);
+	$("#jobStatus_"+loopCounter).html("Completed");
+	$("#"+id).prop('disabled', true);
+	$("#"+id).toggleClass('btn-primary btn-default-alt');
+	
+}
+
+</script>
+	
 </head>
 <body>
 	<%@ include file="userNavBar.jsp"%>
@@ -36,15 +57,13 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="userwork" items="${userWorkList}">
+						<c:forEach var="userwork" items="${userWorkList}" varStatus="loop">
 							<tr>
-								<td><fmt:formatDate type="both" dateStyle="medium"
-										timeStyle="medium" value="${userwork.jobPostedDate}" /></td>
+								<td><fmt:formatDate type="both" dateStyle="medium" timeStyle="medium" value="${userwork.jobPostedDate}" /></td>
 								<td>${userwork.numberOfCasesAssigned}</td>
-								<td>${userwork.jobstatus}</td>
+								<td id="jobStatus_${loop.index}">${userwork.jobstatus}</td>
 								<td>
-									<button type="button" class="btn btn-primary btn-xs">Mark
-										as complete</button>
+									<button type="button" id="completebutton_${loop.index}" onclick="markComplete(this)" class="btn btn-primary btn-xs">Mark as complete</button>
 									<button type="button" class="btn btn-primary btn-xs">Cancel</button>
 								</td>
 							</tr>
@@ -52,10 +71,8 @@
 					</tbody>
 				</table>
 			</div>
+			
 		</div>
-		
-		
-		
 	</div>
 
 </body>

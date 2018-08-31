@@ -16,16 +16,10 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active" id="notification"><a href="#">Notifications<span
-						class="sr-only">(current)</span></a></li>
-				<li><a href="userwork" id="myWork">My Work</a></li>
-				<li><a href="feedbackAndRating" id="feedbackAndRating">Feedback and Rating</a></li>
+				<li id="userNotification" class="active"><a href="#">Notifications<span class="sr-only">(current)</span></a></li>
+				<li id="userwork"><a href="userwork">My Work</a></li>
+				<li id="feedbackAndRating"><a href="feedbackAndRating">Feedback and Rating</a></li>
 			</ul>
-
-			<!-- <ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Manage Team</a></li>
-				<li><a href="#">Reports</a></li>
-			</ul> -->
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>
