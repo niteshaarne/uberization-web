@@ -26,11 +26,20 @@
 		$("#assignWork").removeClass("active");
 		$("#reviewFeedback").addClass("active");
 		$("#reviewTable").hide();
+
+		$("#submit").click(function() {
+			$("#reviewTable").show("slow");
+		});
+
 	});
-	
-	$("#submit").click(function(){
-		$("#reviewTable").display();
-	});
+
+	function calculateAccepted() {
+		var total = 0;
+		$(".acceptableTextBox").each(function() {
+			total = Number(total) + Number($(this).val());
+		});
+		$("#totalAccepted").html(total);
+	}
 </script>
 
 </head>
@@ -40,9 +49,8 @@
 		<div class="row" style="margin-bottom: 5%;">
 			<div class="col-md-3">
 				<div class="form-group">
-					<label>Type of work</label> 
-					<select
-						name="typeOfWork" id="typeOfWorks" class="form-control">
+					<label>Type of work</label> <select name="typeOfWork"
+						id="typeOfWorks" class="form-control">
 						<option value="Case Processing" Selected>Case processing</option>
 						<option value="Medical Review">Medical review</option>
 					</select>
@@ -77,25 +85,30 @@
 						</tr>
 					</thead>
 					<tbody>
+
 						<c:forEach var="userTaskStatus" items="${userTaskStatusList}"
 							varStatus="loop">
 							<tr>
 								<td>${userTaskStatus.userName}</td>
 								<td>${userTaskStatus.taskAssigned}</td>
 								<td>${userTaskStatus.taskCompleted}</td>
-								<td><input type="number" formControlName="lastName"
-									ngDefaultControl class="form-control-alt"
-									id="exampleInputlastName" placeholder="Acceptable tasks"
-									size="10"></td>
-								<td><input type="number" formControlName="lastName"
-									ngDefaultControl class="form-control-alt"
-									id="exampleInputlastName" placeholder="Rating" size="10"></td>
+								<td><input type="number" onchange="calculateAccepted(this)"
+									class="acceptableTextBox" id="completebutton_${loop.index}"
+									placeholder="Acceptable tasks" size="10"></td>
+								<td><input type="number" id="exampleInputlastName"
+									placeholder="Rating" size="10"></td>
 								<td>
 									<button type="button" class="btn btn-primary btn-xs">Sign
 										off</button>
 								</td>
 							</tr>
 						</c:forEach>
+						<tr>
+							<td>Total</td>
+							<td>${totalAssigned}</td>
+							<td>${totalCompleted}</td>
+							<td id="totalAccepted">${totalCompleted}</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
