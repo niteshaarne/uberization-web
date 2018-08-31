@@ -18,6 +18,18 @@
 	href="https://www.principalcdn.com/css/horizon/v2/favicon.ico">
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
+	
+	
+<script type="text/javascript">
+$( document ).ready(function() {
+	$("#userwork").addClass("active");
+	$("#feedbackAndRatings").removeClass("active");
+	$("#userNotification").removeClass("active");
+	
+});
+</script>
+
+
 </head>
 <body>
 <%@ include file = "userNavBar.jsp" %>
@@ -54,7 +66,7 @@
 	
 		<div class="form-group">
 			<label for="exampleInputDeadline">Available hours</label> 
-			<div><input type="number" name="availableHours" formControlName="mobileNumber" class="form-control-alt" id="exampleInputmobileNumber" placeholder="Enter available hours" size="40"></div>
+			<div><input type="number" name="availableHours" formControlName="availableHours" class="form-control-alt" id="exampleInputavailableHours" placeholder="Enter available hours" size="40"></div>
 		</div>
 		<div class="form-group">
 			<label for="exampleInputDeadline">Respond by</label> 
@@ -63,7 +75,7 @@
 		
 		<div class="form-group">
 			 <a class="btn btn-primary" href="userwork" role="button">Accept</a>
-			<button type="button" class="btn btn-danger">Decline</button>
+			<button type="button" class="btn btn-danger" onclick="this.disabled=true">Decline</button>
 		</div>
 		</div>
 	</div>
