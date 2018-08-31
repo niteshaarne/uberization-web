@@ -72,7 +72,7 @@
 		</div>
 		
 		
-		<form id="assignWork"  action="assignWorkService" name="assignWorkName" method="POST" >
+		<form id="assignWork"  action="assignWorkPage" name="assignWorkName" method="POST" >
 		<div class="row util-margin-top-10">
 			
 		<table class="table table-bordered" id="freelancerTable" style="text-align:center;display:none">
@@ -86,19 +86,19 @@
           </thead>
           <tbody>
             <tr>
-              <td>Mark Manson</td>
+              <td>Aritra Banerjee</td>
               <td>4.5</td>
               <td>20</td>
               <td><div contenteditable>0</div></td>
             </tr>
             <tr>
-              <td>Jacob Miller</td>
+              <td>Nitesh Aarne</td>
               <td>4</td>
               <td>40</td>
               <td><div contenteditable>0</div></td>
             </tr>
             <tr>
-              <td>Larry Page</td>
+              <td>Srutarshi Dutta</td>
               <td>5</td>
               <td>30</td>
               <td><div contenteditable>0</div></td>
@@ -116,7 +116,7 @@
 		<div class="col-md-4 col-xs-12"></div>
 		<div class="col-md-4 col-xs-12"></div>
 			<input type="submit" [disabled] ="!formdata.valid"
-					class="btn btn-primary" value="Publish to All">
+					class="btn btn-primary" value="Publish to All" id="publishAll" style="display:none;">
 		</div>
 		</form>
 	</div>
@@ -129,6 +129,8 @@ function toggleTable() {
     
     var lTable2 = document.getElementById("publishDetailsTable");
     lTable2.style.display = (lTable2.style.display == "table") ? "none" : "table";
+    
+    document.getElementById("publishAll").style.display = "block";
 }
 </script>
 </html>

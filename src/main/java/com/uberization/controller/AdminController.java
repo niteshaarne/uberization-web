@@ -111,9 +111,35 @@ public class AdminController {
 			model = new ModelAndView("assignWork");
 		} catch (Exception e) {
 			logger.equals("Excpetion in searchWorkDetails" + e);
-		}
-		
-		
+		}	
+		return model;
+	}
+	
+	@RequestMapping(value = "/assignWorkPage", method = RequestMethod.POST, produces = {
+			MediaType.TEXT_HTML_VALUE })
+	public ModelAndView assignWorkService(HttpServletRequest httpServletRequest) {
+		System.out.println("In assignWorkService....");
+		logger.info("assignWorkService method starts");
+		ModelAndView model = null;
+		try {
+			model = new ModelAndView("assignSuccessful");
+		} catch (Exception e) {
+			logger.equals("Excpetion in assignWorkService" + e);
+		}	
+		return model;
+	}
+	
+	@RequestMapping(value = "/goToPublish", method = RequestMethod.POST, produces = {
+			MediaType.TEXT_HTML_VALUE })
+	public ModelAndView goToPublish(HttpServletRequest httpServletRequest) {
+		System.out.println("In assignWorkService....");
+		logger.info("assignWorkService method starts");
+		ModelAndView model = null;
+		try {
+			model = new ModelAndView("adminDashboard");
+		} catch (Exception e) {
+			logger.equals("Excpetion in assignWorkService" + e);
+		}	
 		return model;
 	}
 	
