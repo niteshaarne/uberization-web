@@ -2,10 +2,10 @@ package com.uberization.responsePojo;
 
 public class JobPostingDetails {
 	
-	private String typeOfWork = null;
-	private String numberOfCases = null;
-	private String dateOfWork = null;
-	private String responseDeadline = null;
+	private String typeOfWork;
+	private String numberOfCases;
+	private String dateOfWork;
+	private String responseDeadline;
 	public String getTypeOfWork() {
 		return typeOfWork;
 	}

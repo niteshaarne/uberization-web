@@ -1,6 +1,7 @@
 package com.uberization.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,6 +17,8 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.uberization.responsePojo.JobPostingDetails;
+import com.uberization.responsePojo.UserDetails;
+import com.uberization.util.WebAppConstants;
 
 @Controller
 public class AdminController {
@@ -51,7 +54,7 @@ public class AdminController {
 			
 			/* REST CALL */
 			Client client = Client.create();
-			WebResource webResource = client.resource("http://10.0.0.10:8080/rest/publishJob");
+			WebResource webResource = client.resource(WebAppConstants.PUBLISH_SERVICE);
 			ObjectWriter ow = new ObjectMapper().writerWithDefaultPrettyPrinter();
 			String regObjJason = ow.writeValueAsString(jobPostingDetails);
 			System.out.println("request json : " + regObjJason);
@@ -63,7 +66,11 @@ public class AdminController {
 			String output = response.getEntity(String.class);
 			System.out.println(output);
 			
+			HttpSession session=httpServletRequest.getSession(false);  
+			UserDetails userDetails = (UserDetails)session.getAttribute("userDetails"); 
+			System.out.println("userDetails from session : " + userDetails);
 			model = new ModelAndView("adminDashboard");
+			model.addObject("userDetails",userDetails);
 			logger.info("publishWork() method End ...");
 
 		} catch (Exception e) {

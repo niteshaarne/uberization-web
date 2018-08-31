@@ -19,6 +19,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.uberization.responsePojo.UserDetails;
 import com.uberization.util.SkillEnum;
+import com.uberization.util.WebAppConstants;
 
 @Controller
 public class RegistrationController {
@@ -77,7 +78,7 @@ public class RegistrationController {
 			/* REST CALL */
 
 			Client client = Client.create();
-			WebResource webResource = client.resource("http://10.0.0.10:8080/rest/registerUser");
+			WebResource webResource = client.resource(WebAppConstants.REGISTRATION_SERVICE);
 			ObjectWriter ow = new ObjectMapper().writerWithDefaultPrettyPrinter();
 			String regObjJason = ow.writeValueAsString(userDetails);
 			System.out.println("request json : " + regObjJason);

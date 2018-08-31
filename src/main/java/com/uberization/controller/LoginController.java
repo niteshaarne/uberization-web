@@ -1,6 +1,7 @@
 package com.uberization.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -18,7 +19,9 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.uberization.client.UberClient;
 import com.uberization.requestPojo.UserCredentials;
+import com.uberization.responsePojo.JobDetailsUser;
 import com.uberization.responsePojo.UserDetails;
+import com.uberization.util.WebAppConstants;
 
 
 @Controller
@@ -40,6 +43,9 @@ public class LoginController {
 		String password = null;
 		ObjectMapper mapper = null;
 		UserCredentials userCredentials = new UserCredentials();
+		HttpSession session=httpServletRequest.getSession();
+		JobDetailsUser jobDetailsUser =  new JobDetailsUser();
+        
 		try {
 	        emailId = httpServletRequest.getParameter("emailId");
 	        password = httpServletRequest.getParameter("password");
@@ -48,7 +54,7 @@ public class LoginController {
 	        
 	        /* REST CALL */
 			Client client = Client.create();
-			WebResource webResource = client.resource("http://10.0.0.10:8080/rest/authenticateUser");
+			WebResource webResource = client.resource(WebAppConstants.LOGIN_SERVICE);
 			ObjectWriter ow = new ObjectMapper().writerWithDefaultPrettyPrinter();
 			String regObjJason = ow.writeValueAsString(userCredentials);
 			System.out.println("request json : " + regObjJason);
@@ -66,10 +72,14 @@ public class LoginController {
 	       
 	        if(userDetails.getUserType().equalsIgnoreCase("admin")) {
 	        	model = new ModelAndView("adminDashboard");
+	        	System.out.println("Admin login...");
 	        }else {
 	        	model = new ModelAndView("userDashboard");
+	        	
+	        	System.out.println("User login...");
 	        }
 	        model.addObject("userDetails",userDetails);
+	        session.setAttribute("userDetails",userDetails);  
 	        logger.info("loginService() method End ...");
 	        
 		}catch (Exception e) {
