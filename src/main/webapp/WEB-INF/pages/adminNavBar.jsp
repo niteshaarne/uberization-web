@@ -18,7 +18,7 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Publish Work <span class="sr-only">(current)</span></a></li>
 				<li><a href="assignWork">Assign work</a></li>
-				<li><a href="#">Review and feedback</a></li>
+				<li><a href="adminReviewFeedback">Review and feedback</a></li>
 				<li><a href="generateReports">Reports</a></li>
 			</ul>
 

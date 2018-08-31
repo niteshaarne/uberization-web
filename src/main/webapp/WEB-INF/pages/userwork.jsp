@@ -25,8 +25,16 @@ $(document ).ready(function() {
 	$("#userwork").addClass("active");
 	$("#feedbackAndRatings").removeClass("active");
 	$("#userNotification").removeClass("active");
-	
 });
+
+function markComplete(ele){
+	var id = ele.id;
+	var loopCounter = id.substr(id.indexOf("_") + 1);
+	$("#jobStatus_"+loopCounter).html("Completed");
+	$("#"+id).prop('disabled', true);
+	$("#"+id).toggleClass('btn-primary btn-default-alt');
+	
+}
 </script>
 	
 </head>
