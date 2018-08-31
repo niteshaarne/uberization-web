@@ -120,10 +120,7 @@ public class UserController {
 			userwork3.setNumberOfCasesAccepted(22);
 			userwork3.setRating(3);
 			userWorkList.add(userwork3);
-			
-			
 			model.addObject("useFeedbackAndRating", userWorkList);
-			
 			
 		}catch (Exception e) {
 			
@@ -155,7 +152,5 @@ public class UserController {
 		}
 		return model;
 	}
-	
-	
 	
 }

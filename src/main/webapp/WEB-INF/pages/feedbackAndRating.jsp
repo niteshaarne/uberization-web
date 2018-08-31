@@ -1,5 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -30,6 +33,16 @@ $(document ).ready(function() {
 });
 </script>
 
+<script type="text/javascript">
+function toggleDiv() {
+    var lTable = document.getElementById("feedbackAndRatingTable");
+    var startDate = $("#startDate").val();
+    var endDate = $("#endDate").val();
+    if(startDate != undefined && startDate != null && startDate != '' && endDate != undefined && endDate != null && endDate != ''){
+    	lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
+    }
+}
+</script>
 
 </head>
 <body>
@@ -39,22 +52,22 @@ $(document ).ready(function() {
 	<div class="row" style="margin-bottom: 5%;">
 		<div class="col-md-2"><label >Date Range</label></div>
 		<div class="col-md-3"><div class="input-group date">
-  <input type="text" maxlength="14" placeholder="MM/DD/YYYY" data-input-mask-type="date" class="form-control horizon-date-picker horizon-input-mask" data-provide="horizon-date-picker" />
+  <input type="text" maxlength="14" id="startDate" placeholder="MM/DD/YYYY" data-input-mask-type="date" class="form-control horizon-date-picker horizon-input-mask" data-provide="horizon-date-picker" />
   <span class="input-group-addon">
       <i class="fa fa-calendar"></i>
   </span>
 </div></div>
 		<div class="col-md-3"><div class="input-group date">
-  <input type="text" maxlength="14" placeholder="MM/DD/YYYY" data-input-mask-type="date" class="form-control horizon-date-picker horizon-input-mask" data-provide="horizon-date-picker" />
+  <input type="text" maxlength="14" id="endDate" placeholder="MM/DD/YYYY" data-input-mask-type="date" class="form-control horizon-date-picker horizon-input-mask" data-provide="horizon-date-picker" />
   <span class="input-group-addon">
       <i class="fa fa-calendar"></i>
   </span>
 </div></div>
-		<div class="col-md-3"><button type="button" class="btn btn-danger">Submit</button></div>
+		<div class="col-md-3"><button type="button" class="btn btn-primary" onclick="toggleDiv();">Submit</button></div>
 	</div>
 		<div class="row">
 			<div class="table-responsive">
-				<table class="table">
+				<table class="table" id="feedbackAndRatingTable" style="display:none">
 					<thead class="black white-text">
 						<tr class="bg-light-blue">
 							<th scope="col">Date</th>
