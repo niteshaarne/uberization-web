@@ -2,11 +2,9 @@ package com.uberization.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +26,6 @@ import com.sun.jersey.api.client.WebResource;
 import com.uberization.responsePojo.JobPostingDetails;
 import com.uberization.responsePojo.UserDetails;
 import com.uberization.util.WebAppConstants;
-import javax.servlet.ServletContext;
 
 @Controller
 public class AdminController {
@@ -128,26 +125,8 @@ public class AdminController {
 			model.addObject("startDate", startDate);
 			model.addObject("endDate", endDate);
 			model.addObject("workType", workType);
-
-			//ServletContext ctx = getServ
-			/*InputStream fis = getClass().getClassLoader().getResourceAsStream("reports.pdf");
-			File file = new File	
-			response.setContentType("application/pdf");
-			response.setContentLength((int) file.length());
-			response.setHeader("Content-Disposition", "attachment; filename=\"" + "reports.pdf" + "\"");
-
-
-			ServletOutputStream os = response.getOutputStream();
-			byte[] bufferData = new byte[1024];
-			int read=0;
-			while((read = fis.read(bufferData))!= -1){
-				os.write(bufferData, 0, read);
-			}
-			os.flush();
-			os.close();
-			fis.close();*/
-			File file = new File(getClass().getClassLoader().getResource("reports.pdf").getFile());
-			InputStream fis = new FileInputStream(file);
+			final File file = new File(getClass().getClassLoader().getResource("reports.pdf").getFile());
+			final InputStream fis = new FileInputStream(file);
 			response.setContentType("application/pdf");
 			response.setContentLength((int) file.length());
 			response.setHeader("Content-Disposition", "attachment; filename=\"" + "reports.pdf" + "\"");
@@ -160,14 +139,23 @@ public class AdminController {
 			os.flush();
 			os.close();
 			fis.close();
-			System.out.println("File downloaded at client successfully");
-
-
+			logger.info("File downloaded at client successfully");
 		}
 		logger.info("generateReports() method End ...");
 		return model;
 	}
 
+
+	@RequestMapping(value = "/adminReviewFeedback", method = RequestMethod.GET, produces = {
+			MediaType.TEXT_HTML_VALUE })
+	public ModelAndView adminReviewFeedback(HttpServletRequest httpServletRequest) {
+		System.out.println("in assignWork() method...");
+		logger.info("assignWork() method Start ...");
+		ModelAndView model = null;
+		model = new ModelAndView("adminReviewFeedack");
+		logger.info("assignWork() method End ...");
+		return model;
+	}
 
 	private boolean noInputParams(final String startDate, final String endDate, final String workType) {
 		return null == startDate && null == endDate && null == workType;

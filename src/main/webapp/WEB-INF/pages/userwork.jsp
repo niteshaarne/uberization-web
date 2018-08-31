@@ -1,8 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
-<html>
-<html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -21,12 +19,21 @@
 	href="https://www.principalcdn.com/css/horizon/v2/favicon.ico">
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
+<script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>	
+<script type="text/javascript">
+$(document ).ready(function() {
+	$("#userwork").addClass("active");
+	$("#feedbackAndRatings").removeClass("active");
+	$("#userNotification").removeClass("active");
+	
+});
+</script>
+	
 </head>
 <body>
 	<%@ include file="userNavBar.jsp"%>
 
-	<div class="container-fluid">
-		<div class="col-md-2"></div>
+	<div class="container">
 		<div class="row">
 			<div class="table-responsive">
 				<table class="table">
@@ -39,15 +46,13 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="userwork" items="${userWorkList}">
+						<c:forEach var="userwork" items="${userWorkList}" varStatus="loop">
 							<tr>
-								<td><fmt:formatDate type="both" dateStyle="medium"
-										timeStyle="medium" value="${userwork.jobPostedDate}" /></td>
+								<td><fmt:formatDate type="both" dateStyle="medium" timeStyle="medium" value="${userwork.jobPostedDate}" /></td>
 								<td>${userwork.numberOfCasesAssigned}</td>
-								<td>${userwork.jobstatus}</td>
+								<td id="jobStatus_${loop.index}">${userwork.jobstatus}</td>
 								<td>
-									<button type="button" class="btn btn-primary btn-xs">Mark
-										as complete</button>
+									<button type="button" id="completebutton_${loop.index}" onclick="markComplete(this)" class="btn btn-primary btn-xs">Mark as complete</button>
 									<button type="button" class="btn btn-primary btn-xs">Cancel</button>
 								</td>
 							</tr>
@@ -55,10 +60,8 @@
 					</tbody>
 				</table>
 			</div>
+			
 		</div>
-		
-		
-		
 	</div>
 
 </body>

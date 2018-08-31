@@ -90,7 +90,7 @@
 	<input type="submit" [disabled] = "!formdata.valid"  class="btn btn-primary" value="Submit">
   </form>
 </div>
-  </div>
+  </div></div>
 </body>
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>
 </html>

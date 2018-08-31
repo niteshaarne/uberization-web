@@ -27,6 +27,8 @@ public class RestController {
         return model;
     }  
 	
+	
+	
 	/**
 	 * @return
 	 */
@@ -38,6 +40,17 @@ public class RestController {
         model = new ModelAndView("registration");
         logger.info("registration() method End ...");
         return model;
-    } 
+    }
+	
+	@RequestMapping("/userDashboard")
+	 public ModelAndView viewDashBoard() {  
+		
+       return  new ModelAndView("userDashboard");
+        
+    }
+	
+
+	
+	
 	
 }

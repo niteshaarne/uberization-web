@@ -65,20 +65,6 @@ public class UserController {
 			jobDetailsUser2.setResponsedByDate(""+calendar1.getTime());
 			jobDetailsUserList.add(jobDetailsUser2);
 			
-			/*jobDetailsUser3.setJobDescription("Medical review");
-			jobDetailsUser3.setJobId("1");
-			jobDetailsUser3.setNumberOfCase(10);
-			jobDetailsUser3.setTypeOfWork("Medical review");
-			
-			SimpleDateFormat formatter3 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-		    Date date3 = new Date();  
-		    Calendar calendar3 = Calendar.getInstance();
-		    calendar3.setTime(date3);
-		    calendar3.add(Calendar.HOUR, 1);
-		    
-		    jobDetailsUser3.setRequestedDate(formatter3.format(date3));
-			jobDetailsUser3.setResponsedByDate(""+calendar3.getTime());*/
-			
 		}catch (Exception e) {
 			System.out.println("Exception in getJobDetailsForNotifications() method " + e);
 			logger.error("Exception in getJobDetailsForNotifications() method " , e);
@@ -103,11 +89,73 @@ public class UserController {
 			
 		}catch (Exception e) {
 			
+			logger.error(" Exception in getUserMyWork() for User method ...", e);
+			model = new ModelAndView("userDashboard");
+	        model.addObject("errorMsg", "Error while getting work details.");
+		}
+		return model;
+	}
+	
+	
+	@RequestMapping(value="/feedbackAndRating",method=RequestMethod.GET)
+	public ModelAndView getFeedbackAndRating(HttpServletRequest httpServletRequest) {
+		ModelAndView model = new ModelAndView("feedbackAndRating");
+		try {
+			List<UserWork> userWorkList = new ArrayList<UserWork>();
+			UserWork userwork1 = new UserWork(new Date(), 10, JobStatus.COMPLETED.getDescription());
+			UserWork userwork2 = new UserWork(new Date(), 20, JobStatus.NOT_STARTED.getDescription());
+			UserWork userwork3 = new UserWork(new Date(), 30, JobStatus.IN_PROGRESS.getDescription());
+			
+			userwork1.setFeedback("Good");
+			userwork1.setNumberOfCasesAccepted(10);
+			userwork1.setRating(4);
+			userWorkList.add(userwork1);
+			
+			userwork2.setFeedback("Good");
+			userwork2.setNumberOfCasesAccepted(20);
+			userwork2.setRating(5);
+			userWorkList.add(userwork2);
+			
+			userwork3.setFeedback("Average");
+			userwork3.setNumberOfCasesAccepted(22);
+			userwork3.setRating(3);
+			userWorkList.add(userwork3);
+			
+			
+			model.addObject("useFeedbackAndRating", userWorkList);
+			
+			
+		}catch (Exception e) {
+			
 			logger.error(" Exception in mywork for User method ...", e);
 			model = new ModelAndView("userDashboard");
 	        model.addObject("errorMsg", "Error while publishing work.");
 		}
 		return model;
 	}
+	
+	
+	/**
+	 * @param httpServletRequest
+	 * @return
+	 */
+	@RequestMapping(value="/notification",method=RequestMethod.GET)
+	public ModelAndView getNotifications(HttpServletRequest httpServletRequest) {
+		ModelAndView model = new ModelAndView("userDashboard");
+		ArrayList<JobDetailsUser> jobDetailsUserList;
+		try {
+			jobDetailsUserList = getJobDetailsForNotifications(new UserDetails());
+        	model.addObject("jobDetailsUserList",jobDetailsUserList);
+        	System.out.println("User login...");
+			
+		}catch (Exception e) {
+			logger.error(" Exception in getNotifications() for User method ...", e);
+			model = new ModelAndView("userDashboard");
+	        model.addObject("errorMsg", "Error while getting notification details.");
+		}
+		return model;
+	}
+	
+	
 	
 }
