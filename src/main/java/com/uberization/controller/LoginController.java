@@ -1,5 +1,7 @@
 package com.uberization.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -44,7 +46,7 @@ public class LoginController {
 		ObjectMapper mapper = null;
 		UserCredentials userCredentials = new UserCredentials();
 		HttpSession session=httpServletRequest.getSession();
-		JobDetailsUser jobDetailsUser =  new JobDetailsUser();
+		ArrayList<JobDetailsUser> jobDetailsUserList =  new ArrayList();
         
 		try {
 	        emailId = httpServletRequest.getParameter("emailId");
@@ -75,7 +77,8 @@ public class LoginController {
 	        	System.out.println("Admin login...");
 	        }else {
 	        	model = new ModelAndView("userDashboard");
-	        	
+	        	jobDetailsUserList = new UserController().getJobDetailsForNotifications(userDetails);
+	        	model.addObject("jobDetailsUserList",jobDetailsUserList);
 	        	System.out.println("User login...");
 	        }
 	        model.addObject("userDetails",userDetails);

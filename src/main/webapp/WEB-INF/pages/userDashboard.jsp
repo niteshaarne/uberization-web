@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -31,7 +29,47 @@
 	</div>
 			
 			
+	<div class="container">
+	<div class="row">
+	<div class="col-md-4"></div>
 	
+	
+	<div class="col-md-4" >
+	<c:forEach var="listValue" items="${jobDetailsUserList}">
+	<input type="hidden" name= "jobId" value="${listValue.jobId}">
+		<div class="panel panel-default">
+      <div class="panel-body">	
+		<div class="form-group">
+			<label for="exampleInputtypeOfWork">Type of work</label> 
+			<div>${listValue.typeOfWork}</div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputnumberOfCases">Requested Date</label>
+			<div>${listValue.requestedDate}</div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputDeadline">Number of Cases</label>
+			<div>${listValue.numberOfCase}</div>
+		</div>
+	
+		<div class="form-group">
+			<label for="exampleInputDeadline">Available hours</label> 
+			<div><input type="number" name="availableHours" formControlName="mobileNumber" class="form-control-alt" id="exampleInputmobileNumber" placeholder="Enter available hours" size="40"></div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputDeadline">Respond by</label> 
+			<div>${listValue.responsedByDate}</div>
+		</div>
+		
+		<div class="form-group">
+			<button type="button" class="btn btn-primary">Accept</button>
+			<button type="button" class="btn btn-danger">Decline</button>
+		</div>
+		</div>
+	</div>
+	</c:forEach>	
+	</div>
+	</div></div>
 	
 	
 	
