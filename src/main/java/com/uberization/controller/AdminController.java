@@ -96,17 +96,59 @@ public class AdminController {
 	 * @param httpServletRequest
 	 * @return
 	 */
-	@RequestMapping(value = "/assignWork", method = RequestMethod.POST, produces = {
+	@RequestMapping(value = "/assignWork", method = RequestMethod.GET, produces = {
 			MediaType.TEXT_HTML_VALUE })
 	public ModelAndView assignWork(HttpServletRequest httpServletRequest) {
 		System.out.println("in assignWork() method...");
 		logger.info("assignWork() method Start ...");
 		ModelAndView model = null;
-		model = new ModelAndView("assignWork");
-		logger.info("assignWork() method End ...");
+        model = new ModelAndView("assignWork");
+        logger.info("assignWork() method End ...");
+        return model;
+	}
+	
+	@RequestMapping(value = "/searchWorkDetails", method = RequestMethod.POST, produces = {
+			MediaType.TEXT_HTML_VALUE })
+	public ModelAndView searchPostedWorkDetails(HttpServletRequest httpServletRequest) {
+		System.out.println("In search post work....");
+		logger.info("search post work method starts");
+		ModelAndView model = null;
+		String typeOfWork = null;
+		String dateOfWork = null;
+		try {
+			model = new ModelAndView("assignWork");
+		} catch (Exception e) {
+			logger.equals("Excpetion in searchWorkDetails" + e);
+		}	
 		return model;
-
-
+	}
+	
+	@RequestMapping(value = "/assignWorkPage", method = RequestMethod.POST, produces = {
+			MediaType.TEXT_HTML_VALUE })
+	public ModelAndView assignWorkService(HttpServletRequest httpServletRequest) {
+		System.out.println("In assignWorkService....");
+		logger.info("assignWorkService method starts");
+		ModelAndView model = null;
+		try {
+			model = new ModelAndView("assignSuccessful");
+		} catch (Exception e) {
+			logger.equals("Excpetion in assignWorkService" + e);
+		}	
+		return model;
+	}
+	
+	@RequestMapping(value = "/goToPublish", method = RequestMethod.POST, produces = {
+			MediaType.TEXT_HTML_VALUE })
+	public ModelAndView goToPublish(HttpServletRequest httpServletRequest) {
+		System.out.println("In assignWorkService....");
+		logger.info("assignWorkService method starts");
+		ModelAndView model = null;
+		try {
+			model = new ModelAndView("adminDashboard");
+		} catch (Exception e) {
+			logger.equals("Excpetion in assignWorkService" + e);
+		}	
+		return model;
 	}
 
 	@RequestMapping(value = "/generateReports", method = { RequestMethod.GET, RequestMethod.POST }, produces = {
