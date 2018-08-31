@@ -62,7 +62,7 @@
 		</div>
 		
 		<div class="form-group">
-			<button type="button" class="btn btn-primary">Accept</button>
+			 <a class="btn btn-primary" href="userwork" role="button">Accept</a>
 			<button type="button" class="btn btn-danger">Decline</button>
 		</div>
 		</div>

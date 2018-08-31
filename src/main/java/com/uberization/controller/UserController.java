@@ -29,7 +29,6 @@ public class UserController {
 		try {
 			JobDetailsUser jobDetailsUser1 = new JobDetailsUser();
 			JobDetailsUser jobDetailsUser2 = new JobDetailsUser();
-			JobDetailsUser jobDetailsUser3 = new JobDetailsUser();
 			
 			jobDetailsUser1.setJobDescription("Medical review");
 			jobDetailsUser1.setJobId("1");
@@ -39,7 +38,7 @@ public class UserController {
 		    Date date = new Date();  
 		    Calendar calendar = Calendar.getInstance();
 		    calendar.setTime(date);
-		    calendar.add(Calendar.HOUR, 1);
+		    calendar.add(Calendar.HOUR,4);
 		    
 		    jobDetailsUser1.setRequestedDate(formatter.format(date));
 			jobDetailsUser1.setResponsedByDate(""+calendar.getTime());
@@ -53,7 +52,7 @@ public class UserController {
 		    Date date1 = new Date();  
 		    Calendar calendar1 = Calendar.getInstance();
 		    calendar1.setTime(date1);
-		    calendar1.add(Calendar.HOUR, 1);
+		    calendar1.add(Calendar.HOUR, 4);
 		    jobDetailsUser2.setRequestedDate(formatter.format(date1));
 			jobDetailsUser2.setResponsedByDate(""+calendar1.getTime());
 			jobDetailsUserList.add(jobDetailsUser2);
