@@ -20,6 +20,7 @@
 						class="sr-only">(current)</span></a></li>
 				<li><a href="assignWork">Assign work</a></li>
 				<li><a href="#">Review and feedback</a></li>
+				<li><a href="generateReports">Reports</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
