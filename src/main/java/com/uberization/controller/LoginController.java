@@ -94,4 +94,28 @@ public class LoginController {
        
     }  
 	
+	 
+	/**
+	 * @param httpServletRequest
+	 * @return
+	 */
+	@RequestMapping("/logout")  
+    public ModelAndView logout(HttpServletRequest httpServletRequest) {  
+		logger.info("logout() method Start ...");
+		ModelAndView model = null;
+		try {
+	        System.out.println("in logout() method...");
+	        model = new ModelAndView("logout");
+	        
+	        HttpSession session=httpServletRequest.getSession();  
+	        session.invalidate();  
+	        
+	        logger.info("logout() method End ...");
+		}catch (Exception e) {
+			logger.info("Exception in logout() ...", e);
+			System.out.println("Exception in logout() ..." + e);
+		}
+        return model;
+    }  
+	
 }

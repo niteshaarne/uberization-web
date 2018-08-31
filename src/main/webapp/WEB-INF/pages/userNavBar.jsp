@@ -20,6 +20,8 @@
 				<li id="userwork"><a href="userwork">My Work</a></li>
 				<li id="feedbackAndRatings"><a href="feedbackAndRating">Feedback and Rating</a></li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right hidden-xs hidden-sm hidden-md">
+				<li class="logout"><span><a id="tse-header-logout" href="logout" class="btn btn-primary navbar-btn">Log Out</a></span></li></ul>
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>

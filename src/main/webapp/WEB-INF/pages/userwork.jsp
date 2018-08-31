@@ -35,6 +35,7 @@ $(document ).ready(function() {
 
 	<div class="container">
 		<div class="row">
+		
 			<div class="table-responsive">
 				<table class="table">
 					<thead class="black white-text">

@@ -49,6 +49,10 @@ function toggleDiv() {
 	<%@ include file="userNavBar.jsp"%>
 
 	<div class="container">
+	<div class="col-md-4"></div>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">Welcome, ${userDetails.firstName}</div>
+	
 	<div class="row" style="margin-bottom: 5%;">
 		<div class="col-md-2"><label >Date Range</label></div>
 		<div class="col-md-3"><div class="input-group date">
