@@ -96,7 +96,7 @@ public class AdminController {
 	 * @param httpServletRequest
 	 * @return
 	 */
-	@RequestMapping(value = "/assignWork", method = RequestMethod.POST, produces = {
+	@RequestMapping(value = "/assignWork", method = { RequestMethod.GET, RequestMethod.POST }, produces = {
 			MediaType.TEXT_HTML_VALUE })
 	public ModelAndView assignWork(HttpServletRequest httpServletRequest) {
 		System.out.println("in assignWork() method...");
