@@ -18,7 +18,7 @@
 			<ul class="nav navbar-nav">
 				<li id="userNotification" class="active"><a href="#">Notifications<span class="sr-only">(current)</span></a></li>
 				<li id="userwork"><a href="userwork">My Work</a></li>
-				<li id="userRating"><a href="#">Feedback and Rating</a></li>
+				<li id="feedbackAndRating"><a href="#">Feedback and Rating</a></li>
 			</ul>
 
 			<!-- <ul class="nav navbar-nav navbar-right">

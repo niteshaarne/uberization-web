@@ -34,5 +34,39 @@ $(document).ready(function() {
 </head>
 <body>
 <%@ include file = "adminNavBar.jsp" %>
+<div class="container">
+		
+		<div class="row">
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="black white-text">
+						<tr class="bg-light-blue">
+							<th scope="col">Name</th>
+							<th scope="col">Assigned</th>
+							<th scope="col">Completed</th>
+							<th scope="col">Acceptable</th>
+							<th scope="col">Rating</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="userTaskStatus" items="${userTaskStatusList}" varStatus="loop">
+							<tr>
+								<td>${userTaskStatus.userName}</td>
+								<td>${userTaskStatus.taskAssigned}</td>
+								<td>${userTaskStatus.taskCompleted}</td>
+								<td><input type="number" formControlName="lastName" ngDefaultControl class="form-control-alt" id="exampleInputlastName" placeholder="Acceptable tasks" size="10"></td>
+								<td><input type="number" formControlName="lastName" ngDefaultControl class="form-control-alt" id="exampleInputlastName" placeholder="Rating" size="10"></td>
+								<td>
+									<button type="button" class="btn btn-primary btn-xs">Sign off</button>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+	</div>
+
 </body>
 </html>

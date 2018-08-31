@@ -24,7 +24,7 @@
 
 $( document ).ready(function() {
 	$("#userwork").addClass("active");
-	$("#userRating").removeClass("active");
+	$("#feedbackAndRating").removeClass("active");
 	$("#userNotification").removeClass("active");
 	
 });

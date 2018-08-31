@@ -1,5 +1,8 @@
 package com.uberization.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +21,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.uberization.responsePojo.JobPostingDetails;
 import com.uberization.responsePojo.UserDetails;
+import com.uberization.responsePojo.UserTaskStatus;
 import com.uberization.util.WebAppConstants;
 
 @Controller
@@ -103,11 +107,28 @@ public class AdminController {
 	@RequestMapping(value = "/adminReviewFeedback", method = RequestMethod.GET, produces = {
 			MediaType.TEXT_HTML_VALUE })
 	public ModelAndView adminReviewFeedback(HttpServletRequest httpServletRequest) {
-		System.out.println("in assignWork() method...");
-		logger.info("assignWork() method Start ...");
-		ModelAndView model = null;
-        model = new ModelAndView("adminReviewFeedack");
-        logger.info("assignWork() method End ...");
+		logger.info("adminReviewFeedback method Start ...");
+		ModelAndView model = new ModelAndView("adminReviewFeedack");
+		List<UserTaskStatus> userTaskStatusList = new ArrayList<UserTaskStatus>();
+		UserTaskStatus userTaskStatus = new UserTaskStatus();
+		userTaskStatus.setJobID(1);
+		userTaskStatus.setTaskAssigned(10);
+		userTaskStatus.setTaskCompleted(8);
+		userTaskStatus.setUserName("John Doe");
+		userTaskStatus.setUserID(1);
+		
+		UserTaskStatus userTaskStatus1 = new UserTaskStatus();
+		userTaskStatus1.setJobID(2);
+		userTaskStatus1.setTaskAssigned(20);
+		userTaskStatus1.setTaskCompleted(16);
+		userTaskStatus1.setUserName("Jane Doe");
+		userTaskStatus1.setUserID(2);
+		
+		userTaskStatusList.add(userTaskStatus);
+		userTaskStatusList.add(userTaskStatus1);
+		
+		model.addObject("userTaskStatusList",userTaskStatusList);
+        logger.info("adminReviewFeedback method End ...");
         return model;
 	}
 
