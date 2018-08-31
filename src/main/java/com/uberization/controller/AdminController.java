@@ -88,7 +88,7 @@ public class AdminController {
 	 * @param httpServletRequest
 	 * @return
 	 */
-	@RequestMapping(value = "/assignWork", method = RequestMethod.POST, produces = {
+	@RequestMapping(value = "/assignWork", method = RequestMethod.GET, produces = {
 			MediaType.TEXT_HTML_VALUE })
 	public ModelAndView assignWork(HttpServletRequest httpServletRequest) {
 		System.out.println("in assignWork() method...");
@@ -97,8 +97,24 @@ public class AdminController {
         model = new ModelAndView("assignWork");
         logger.info("assignWork() method End ...");
         return model;
-
-
+	}
+	
+	@RequestMapping(value = "/searchWorkDetails", method = RequestMethod.POST, produces = {
+			MediaType.TEXT_HTML_VALUE })
+	public ModelAndView searchPostedWorkDetails(HttpServletRequest httpServletRequest) {
+		System.out.println("In search post work....");
+		logger.info("search post work method starts");
+		ModelAndView model = null;
+		String typeOfWork = null;
+		String dateOfWork = null;
+		try {
+			model = new ModelAndView("assignWork");
+		} catch (Exception e) {
+			logger.equals("Excpetion in searchWorkDetails" + e);
+		}
+		
+		
+		return model;
 	}
 	
 
