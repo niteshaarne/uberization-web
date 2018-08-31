@@ -4,19 +4,27 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.uberization.pojo.JobStatus;
 import com.uberization.responsePojo.JobDetailsUser;
 import com.uberization.responsePojo.UserDetails;
+import com.uberization.responsePojo.UserWork;
 
 @Controller
 public class UserController {
 	
-	public static Log logger = LogFactory.getLog(AdminController.class);
+	public static Log logger = LogFactory.getLog(UserController.class);
 	
 	/**
 	 * @param userDetails
@@ -78,4 +86,28 @@ public class UserController {
 		return jobDetailsUserList;
 	}	
 
+	@RequestMapping(value="/userwork",method=RequestMethod.GET)
+	public ModelAndView getUserMyWork(HttpServletRequest httpServletRequest) {
+		ModelAndView model = new ModelAndView("userwork");
+		try {
+			List<UserWork> userWorkList = new ArrayList<UserWork>();
+			UserWork userwork1 = new UserWork(new Date(), 10, JobStatus.COMPLETED.getDescription());
+			UserWork userwork2 = new UserWork(new Date(), 20, JobStatus.NOT_STARTED.getDescription());
+			UserWork userwork3 = new UserWork(new Date(), 30, JobStatus.IN_PROGRESS.getDescription());
+			
+			userWorkList.add(userwork1);
+			userWorkList.add(userwork2);
+			userWorkList.add(userwork3);
+			model.addObject("userWorkList", userWorkList);
+			
+			
+		}catch (Exception e) {
+			
+			logger.error(" Exception in mywork for User method ...", e);
+			model = new ModelAndView("userDashboard");
+	        model.addObject("errorMsg", "Error while publishing work.");
+		}
+		return model;
+	}
+	
 }
