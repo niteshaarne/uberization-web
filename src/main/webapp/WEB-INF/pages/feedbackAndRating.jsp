@@ -1,8 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
@@ -22,28 +22,6 @@
 	href="https://www.principalcdn.com/css/horizon/v2/favicon.ico">
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
-<script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>		
-	
-<script type="text/javascript">
-$(document ).ready(function() {
-	$("#userwork").removeClass("active");
-	$("#feedbackAndRatings").addClass("active");
-	$("#userNotification").removeClass("active");
-	
-});
-</script>
-
-<script type="text/javascript">
-function toggleDiv() {
-    var lTable = document.getElementById("feedbackAndRatingTable");
-    var startDate = $("#startDate").val();
-    var endDate = $("#endDate").val();
-    if(startDate != undefined && startDate != null && startDate != '' && endDate != undefined && endDate != null && endDate != ''){
-    	lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
-    }
-}
-</script>
-
 </head>
 <body>
 	<%@ include file="userNavBar.jsp"%>
@@ -95,4 +73,25 @@ function toggleDiv() {
 		
 	</div>
 </body>
+<script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>		
+	
+<script type="text/javascript">
+$(document ).ready(function() {
+	$("#userwork").removeClass("active");
+	$("#feedbackAndRatings").addClass("active");
+	$("#userNotification").removeClass("active");
+	
+});
+</script>
+
+<script type="text/javascript">
+function toggleDiv() {
+    var lTable = document.getElementById("feedbackAndRatingTable");
+    var startDate = $("#startDate").val();
+    var endDate = $("#endDate").val();
+    if(startDate != undefined && startDate != null && startDate != '' && endDate != undefined && endDate != null && endDate != ''){
+    	lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
+    }
+}
+</script>
 </html>

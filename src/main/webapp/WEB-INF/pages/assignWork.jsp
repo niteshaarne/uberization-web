@@ -20,19 +20,6 @@
 	href="https://www.principalcdn.com/css/horizon/v2/favicon.ico">
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
-	
-<script type="text/javascript">
-$( document ).ready(function() {
-	$("#publishWork").addClass("active");
-	$("#assignWork").removeClass("active");
-	$("#adminReviewFeedback").removeClass("active");
-	$("#generateReports").removeClass("active");
-	$("#manageTeam").removeClass("active");
-	
-});
-</script>
-
-
 </head>
 <body>
 <%@ include file = "adminNavBar.jsp" %>

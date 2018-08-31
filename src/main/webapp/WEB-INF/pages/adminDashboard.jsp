@@ -64,7 +64,7 @@
 		</div>
 
 			<div class="form-group">
-				<label for="exampleInputDeadline">Response Deadline</label> <input
+				<label for="exampleInputDeadline">Response Deadline (in hours)</label> <input
 					type="number" name="responseDeadline"
 					formControlName="responseDeadline" ngDefaultControl
 					class="form-control-alt" id="exampleInputDeadline"
