@@ -16,10 +16,9 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Publish Work <span
-						class="sr-only">(current)</span></a></li>
-				<li><a href="assignWork">Assign work</a></li>
-				<li><a href="#">Review and feedback</a></li>
+				<li id="publishwork" class="active"><a href="#">Publish Work <span class="sr-only">(current)</span></a></li>
+				<li id="assignWork"><a href="assignWork">Assign work</a></li>
+				<li id="reviewFeedback"><a href="adminReviewFeedback">Review and feedback</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">

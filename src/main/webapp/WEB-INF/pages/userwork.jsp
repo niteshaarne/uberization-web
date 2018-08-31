@@ -22,6 +22,13 @@
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>	
 <script type="text/javascript">
 
+$( document ).ready(function() {
+	$("#userwork").addClass("active");
+	$("#userRating").removeClass("active");
+	$("#userNotification").removeClass("active");
+	
+});
+
 function markComplete(ele){
 	var id = ele.id;
 	var loopCounter = id.substr(id.indexOf("_") + 1);
