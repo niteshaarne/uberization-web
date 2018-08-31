@@ -21,23 +21,11 @@
 	href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>	
 <script type="text/javascript">
-
-$( document ).ready(function() {
+$(document ).ready(function() {
 	$("#userwork").addClass("active");
-	$("#feedbackAndRating").removeClass("active");
+	$("#feedbackAndRatings").removeClass("active");
 	$("#userNotification").removeClass("active");
-	
 });
-
-function markComplete(ele){
-	var id = ele.id;
-	var loopCounter = id.substr(id.indexOf("_") + 1);
-	$("#jobStatus_"+loopCounter).html("Completed");
-	$("#"+id).prop('disabled', true);
-	$("#"+id).toggleClass('btn-primary btn-default-alt');
-	
-}
-
 </script>
 	
 </head>
@@ -45,7 +33,6 @@ function markComplete(ele){
 	<%@ include file="userNavBar.jsp"%>
 
 	<div class="container">
-		
 		<div class="row">
 			<div class="table-responsive">
 				<table class="table">
