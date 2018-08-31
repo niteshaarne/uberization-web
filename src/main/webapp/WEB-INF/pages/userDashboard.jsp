@@ -19,7 +19,6 @@
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
 	
-	
 <script type="text/javascript">
 $( document ).ready(function() {
 	$("#userwork").addClass("active");
@@ -29,16 +28,15 @@ $( document ).ready(function() {
 });
 </script>
 
-
 </head>
 <body>
 <%@ include file = "userNavBar.jsp" %>
 
-	<div class="row">
+	<%-- <div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4"></div>
 		<div class="col-md-4">Welcome, ${userDetails.firstName}</div>
-	</div>
+	</div> --%>
 			
 			
 	<div class="container">
@@ -74,7 +72,8 @@ $( document ).ready(function() {
 		</div>
 		
 		<div class="form-group">
-			 <a class="btn btn-primary" href="userwork" role="button">Accept</a>
+			 <!-- <a class="btn btn-primary" href="#" role="button" onclick="this.disabled=true">Accept</a> -->
+			 <button type="button" class="btn btn-primary" onclick="this.disabled=true">Accept</button>
 			<button type="button" class="btn btn-danger" onclick="this.disabled=true">Decline</button>
 		</div>
 		</div>

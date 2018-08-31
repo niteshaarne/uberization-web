@@ -20,13 +20,26 @@
 	href="https://www.principalcdn.com/css/horizon/v2/favicon.ico">
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
+	
+<script type="text/javascript">
+$( document ).ready(function() {
+	$("#publishWork").addClass("active");
+	$("#assignWork").removeClass("active");
+	$("#adminReviewFeedback").removeClass("active");
+	$("#generateReports").removeClass("active");
+	$("#manageTeam").removeClass("active");
+	
+});
+</script>
+
+
 </head>
 <body>
 <%@ include file = "adminNavBar.jsp" %>
 
-	<div class="row">
+	<%-- <div class="row">
 		<div class="col-md-4 col-xs-12">Welcome, ${userDetails.firstName}</div>
-	</div>	
+	</div>	 --%>
 			
 	<div class="container">
 			<div class="row util-margin-top-20">
@@ -132,5 +145,15 @@ function toggleTable() {
     
     document.getElementById("publishAll").style.display = "block";
 }
+</script>
+<script type="text/javascript">
+$( document ).ready(function() {
+	$("#publishWork").removeClass("active");
+	$("#assignWork").addClass("active");
+	$("#adminReviewFeedback").removeClass("active");
+	$("#generateReports").removeClass("active");
+	$("#manageTeam").removeClass("active");
+	
+});
 </script>
 </html>

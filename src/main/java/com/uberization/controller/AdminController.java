@@ -109,6 +109,18 @@ public class AdminController {
 		logger.info("assignWork() method End ...");
 		return model;
 	}
+	
+	@RequestMapping(value = "/adminDashboard", method = { RequestMethod.GET, RequestMethod.POST }, produces = {MediaType.TEXT_HTML_VALUE })
+	public ModelAndView getAdminDashboard(HttpServletRequest httpServletRequest) {
+		System.out.println("in getAdminDashboard() method...");
+		logger.info("getAdminDashboard() method Start ...");
+		ModelAndView model = null;
+		model = new ModelAndView("adminDashboard");
+		logger.info("getAdminDashboard() method End ...");
+		return model;
+	}
+	
+	
 
 	@RequestMapping(value = "/searchWorkDetails", method = RequestMethod.POST, produces = { MediaType.TEXT_HTML_VALUE })
 	public ModelAndView searchPostedWorkDetails(HttpServletRequest httpServletRequest) {
@@ -223,4 +235,8 @@ public class AdminController {
 	private boolean noInputParams(final String startDate, final String endDate, final String workType) {
 		return null == startDate && null == endDate && null == workType;
 	}
+	
+	
+	
+	
 }

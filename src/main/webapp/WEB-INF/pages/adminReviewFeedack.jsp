@@ -1,5 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
@@ -22,11 +25,13 @@
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#publishwork").removeClass("active");
+		$("#publishWork").removeClass("active");
 		$("#assignWork").removeClass("active");
-		$("#reviewFeedback").addClass("active");
+		$("#adminReviewFeedback").addClass("active");
+		$("#generateReports").removeClass("active");
+		$("#manageTeam").removeClass("active");
+		
 		$("#reviewTable").hide();
-
 		$("#submit").click(function() {
 			$("#reviewTable").show("slow");
 		});
@@ -68,7 +73,7 @@
 				</div>
 			</div>
 			<div class="col-md-1">
-				<button type="button" id="submit" class="btn btn-danger">Submit</button>
+				<button type="button" id="submit" class="btn btn-primary">Submit</button>
 			</div>
 		</div>
 		<div class="row">
