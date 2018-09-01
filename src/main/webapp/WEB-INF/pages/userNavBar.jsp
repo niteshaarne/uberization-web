@@ -16,7 +16,7 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li id="userNotification" class="active"><a href="notification" class="btn-primary">Notifications<span class="badge">2</span></a></li>
+				<li id="userNotification" class="active"><a href="notification" class="btn-primary">Notifications<span class="badge">1</span></a></li>
 				<li id="userwork"><a href="userwork">My Work</a></li>
 				<li id="feedbackAndRatings"><a href="feedbackAndRating">Feedback and Rating</a></li>
 			</ul>
