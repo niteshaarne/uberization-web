@@ -108,11 +108,18 @@ public class AdminController {
 		System.out.println("in assignWork() method...");
 		logger.info("assignWork() method Start ...");
 		ModelAndView model = null;
-		model = new ModelAndView("assignWork");
+		try {
+			List<UserTaskStatus> userTaskDetailsList = new ArrayList<UserTaskStatus>();
+			userTaskDetailsList = createUserTaskDetails();
+			model = new ModelAndView("assignWork");
+			
+		} catch (Exception e) {
+			System.out.println("Exception in assignWork");
+		}	
 		logger.info("assignWork() method End ...");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/adminDashboard", method = { RequestMethod.GET, RequestMethod.POST }, produces = {MediaType.TEXT_HTML_VALUE })
 	public ModelAndView getAdminDashboard(HttpServletRequest httpServletRequest) {
 		System.out.println("in getAdminDashboard() method...");
@@ -273,7 +280,12 @@ public class AdminController {
 		return null == startDate && null == endDate && null == workType;
 	}
 	
+	private List<UserTaskStatus> createUserTaskDetails() {
+		List<UserTaskStatus> userTaskStatusList = new ArrayList<UserTaskStatus>();
+		UserTaskStatus userTaskStatus = new UserTaskStatus();
 	
+		return userTaskStatusList;
+	}
 	
 	
 }

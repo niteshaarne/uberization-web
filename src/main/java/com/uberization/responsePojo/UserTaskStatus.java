@@ -5,7 +5,6 @@ public class UserTaskStatus {
 	private Integer userID;
 	private String userName;
 	private Integer taskAssigned;
-	private Integer taskElected;
 	private Integer taskCompleted;
 	private Integer taskAcceptable;
 	public Integer getTaskAcceptable() {
@@ -33,12 +32,6 @@ public class UserTaskStatus {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-	public Integer getTaskElected() {
-		return taskElected;
-	}
-	public void setTaskElected(Integer taskElected) {
-		this.taskElected = taskElected;
 	}
 	public Integer getTaskAssigned() {
 		return taskAssigned;
