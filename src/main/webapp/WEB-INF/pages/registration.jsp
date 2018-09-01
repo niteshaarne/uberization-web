@@ -75,7 +75,7 @@
     <legend class="hzn-radiocheckbox-legend">Select your skills</legend>
     <div class="checkbox styled-checkbox">
       <input type="checkbox" name="caseProcessing" id="checkboxLegend1" formControlName="caseProcessing" >
-      <label for="checkboxLegend1">Case Processing</label>
+      <label for="checkboxLegend1">Dental Claim Staging</label>
     </div>
     <div class="checkbox styled-checkbox">
       <input type="checkbox" name="medicalReview" id="checkboxLegend2" formControlName="medicalReview" >

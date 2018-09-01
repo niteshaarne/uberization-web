@@ -65,7 +65,7 @@ public class RegistrationController {
 			userDetails.setPassword(password);
 			userDetails.setUserType("User");
 			if (caseProcessing != null) {
-				skillSet.add(SkillEnum.CASE_PROCESSING);
+				skillSet.add(SkillEnum.DENTAL_CLAIM_STAGING);
 			}
 
 			if (medicalReview != null) {

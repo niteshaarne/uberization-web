@@ -12,7 +12,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public enum SkillEnum {
 	DENTAL_CLAIM("Dental Claim","Dental Claim",2), VISION_CLAIM("Vision Claim","Vision Claim",1),
 	DATA_ENTRY("Data Entry","Data Entry",4),MEDICAL_REVIEW("Medical Review","Medical Review",3),
-	CASE_PROCESSING("Case Processing","Case Processing",5);
+	CASE_PROCESSING("Case Processing","Case Processing",5),
+	DENTAL_CLAIM_STAGING("Dental Claim Staging","Dental Claim Staging",6);
 	private String name;
 	private Integer id;
 	private String description;
@@ -28,6 +29,7 @@ public enum SkillEnum {
         namesMap.put(DATA_ENTRY.getName().toLowerCase(), DATA_ENTRY);
         namesMap.put(MEDICAL_REVIEW.getName().toLowerCase(), MEDICAL_REVIEW);
         namesMap.put(CASE_PROCESSING.getName().toLowerCase(), CASE_PROCESSING);
+        namesMap.put(DENTAL_CLAIM_STAGING.getName().toLowerCase(), DENTAL_CLAIM_STAGING);
     }
 
     @JsonCreator
