@@ -36,8 +36,8 @@
 			<div class="form-group">
 			<label for="inputtypeOfWork">Type of work</label> 
 				  <select class="form-control">
+				    <option>Dental Claim</option>
 		            <option>Medical Review</option>
-		            <option>Case Processing</option>
 		          </select>
 			</div>
 			</div>
