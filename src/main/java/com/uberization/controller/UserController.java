@@ -88,9 +88,9 @@ public class UserController {
 			Date dt = new Date();
 			Calendar c = Calendar.getInstance(); 
 			c.setTime(dt); 
-			c.add(Calendar.DATE, -2);
-			dt = c.getTime();
+			c.add(Calendar.DATE, -1);
 			UserWork userwork2 = new UserWork(c.getTime(), 20, JobStatus.COMPLETED.getDescription());
+			c.add(Calendar.DATE, -1);
 			UserWork userwork3 = new UserWork(c.getTime(), 30, JobStatus.COMPLETED.getDescription());
 			
 			userWorkList.add(userwork1);
@@ -115,8 +115,13 @@ public class UserController {
 		try {
 			List<UserWork> userWorkList = new ArrayList<UserWork>();
 			UserWork userwork1 = new UserWork(new Date(), 10, JobStatus.ASSIGNED.getDescription());
-			UserWork userwork2 = new UserWork(new Date(), 20, JobStatus.ASSIGNED.getDescription());
-			UserWork userwork3 = new UserWork(new Date(), 30, JobStatus.COMPLETED.getDescription());
+			Date dt = new Date();
+			Calendar c = Calendar.getInstance(); 
+			c.setTime(dt); 
+			c.add(Calendar.DATE, -1);
+			UserWork userwork2 = new UserWork(c.getTime(), 20, JobStatus.ASSIGNED.getDescription());
+			c.add(Calendar.DATE, -1);
+			UserWork userwork3 = new UserWork(c.getTime(), 30, JobStatus.COMPLETED.getDescription());
 			
 			userwork1.setFeedback("Good");
 			userwork1.setNumberOfCasesAccepted(10);
