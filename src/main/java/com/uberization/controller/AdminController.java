@@ -1,8 +1,10 @@
 package com.uberization.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -30,6 +32,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.uberization.responsePojo.JobPostingDetails;
 import com.uberization.responsePojo.UserDetails;
 import com.uberization.responsePojo.UserTaskStatus;
+import com.uberization.util.SkillEnum;
 import com.uberization.util.WebAppConstants;
 
 @Controller
@@ -100,7 +103,8 @@ public class AdminController {
 	 * @return
 	 */
 
-	@RequestMapping(value = "/assignWork", method = { RequestMethod.GET, RequestMethod.POST }, produces = {MediaType.TEXT_HTML_VALUE })
+	@RequestMapping(value = "/assignWork", method = { RequestMethod.GET, RequestMethod.POST }, produces = {
+			MediaType.TEXT_HTML_VALUE })
 	public ModelAndView assignWork(HttpServletRequest httpServletRequest) {
 		System.out.println("in assignWork() method...");
 		logger.info("assignWork() method Start ...");
@@ -218,6 +222,47 @@ public class AdminController {
 		logger.info("adminReviewFeedback method End ...");
 		return model;
 
+	}
+
+	@RequestMapping(value = "/manageTeam", method = RequestMethod.GET, produces = { MediaType.TEXT_HTML_VALUE })
+	public ModelAndView manageTeam(HttpServletRequest httpServletRequest) {
+		ModelAndView model = new ModelAndView("manageTeam");
+		UserDetails user1 = new UserDetails();
+		user1.setContactNumber("8983089016");
+		user1.setEmail("sujaysudeep93@gmail.com");
+		user1.setFirstName("Sujay");
+		user1.setLastName("Anakkathil");
+		user1.setIsApproved(true);
+		user1.setSkillSet(Arrays.asList(SkillEnum.CASE_PROCESSING, SkillEnum.MEDICAL_REVIEW));
+
+		UserDetails user2 = new UserDetails();
+		user2.setContactNumber("749287392");
+		user2.setEmail("nitesh@gmail.com");
+		user2.setFirstName("Nitesh");
+		user2.setLastName("Aarne");
+		user2.setIsApproved(true);
+		user2.setSkillSet(Arrays.asList(SkillEnum.CASE_PROCESSING, SkillEnum.MEDICAL_REVIEW));
+
+		UserDetails user3 = new UserDetails();
+		user3.setContactNumber("9823718343");
+		user3.setEmail("aniruddha@gmail.com");
+		user3.setFirstName("Aniruddha");
+		user3.setLastName("Borbodai");
+		user3.setIsApproved(false);
+		user3.setSkillSet(Arrays.asList(SkillEnum.MEDICAL_REVIEW));
+
+		UserDetails user4 = new UserDetails();
+		user4.setContactNumber("8232728388");
+		user4.setEmail("aritra@gmail.com");
+		user4.setFirstName("Aritra");
+		user4.setLastName("Banerjee");
+		user4.setIsApproved(true);
+		user4.setSkillSet(Arrays.asList(SkillEnum.CASE_PROCESSING));
+	
+		
+		model.addObject("userdetailsList", Arrays.asList(user1,user2,user3,user4));
+
+		return model;
 	}
 
 	private boolean noInputParams(final String startDate, final String endDate, final String workType) {

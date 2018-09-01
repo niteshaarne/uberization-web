@@ -23,7 +23,7 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Manage Team</a></li>
+				<li><a href="manageTeam">Manage Team</a></li>
 				<li><a href="#">Reports</a></li>
 			</ul>
 		</div>

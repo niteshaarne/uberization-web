@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.uberization.pojo.SkillSet;
 import com.uberization.util.SkillEnum;
 
 public class UserDetails {
@@ -15,10 +14,16 @@ public class UserDetails {
 	private String lastName;
 	private String contactNumber;
 	private MultipartFile resume;
-	//private List<SkillSet> skillSetList;
 	private List<SkillEnum> skillSet;
 	private String userType;
+	private Boolean isApproved;
 	
+	public Boolean getIsApproved() {
+		return isApproved;
+	}
+	public void setIsApproved(Boolean isApproved) {
+		this.isApproved = isApproved;
+	}
 	public MultipartFile getResume() {
 		return resume;
 	}

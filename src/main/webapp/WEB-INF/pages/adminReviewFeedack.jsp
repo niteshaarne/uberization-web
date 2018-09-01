@@ -47,7 +47,7 @@
 	<%@ include file="adminNavBar.jsp"%>
 	<div class="container">
 		<div class="row" style="margin-bottom: 5%;">
-			<div class="col-md-3">
+			<div class="col-md-4 col-xs-12">
 				<div class="form-group">
 					<label>Type of work</label> <select name="typeOfWork"
 						id="typeOfWorks" class="form-control">
@@ -56,7 +56,7 @@
 					</select>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4 col-xs-12">
 				<label>Date</label>
 				<div class="input-group date">
 					<input type="text" maxlength="14" placeholder="MM/DD/YYYY"
@@ -67,7 +67,7 @@
 					</span>
 				</div>
 			</div>
-			<div class="col-md-1">
+			<div class="col-md-4 col-xs-12 util-margin-top-25">
 				<button type="button" id="submit" class="btn btn-danger">Submit</button>
 			</div>
 		</div>
