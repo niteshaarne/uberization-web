@@ -105,7 +105,7 @@
 				<div class="form-group">
 					<label>Type of work</label> <select name="typeOfWork"
 						id="typeOfWorks" class="form-control">
-						<option value="Case Processing" Selected>Case processing</option>
+						<option value="Dental Claim" Selected>Dental Claim</option>
 						<option value="Medical Review">Medical review</option>
 					</select>
 				</div>
