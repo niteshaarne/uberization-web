@@ -29,7 +29,7 @@
 			<div class="row util-margin-top-20">	
 		   	 <div class="col-md-4 col-xs-12">
 		   	 <form action="goToPublish" method="POST">
-		       <button type="button" class="btn btn-primary btn-lg">New Job Post</button>
+		       <a class="btn btn-primary" href="adminDashboard" role="button" id="adminDashboard">New Job Post</a>
 		      </form>
 		    </div>
 		</div>

@@ -16,15 +16,15 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Publish Work <span class="sr-only">(current)</span></a></li>
-				<li><a href="assignWork">Assign work</a></li>
-				<li><a href="adminReviewFeedback">Review and feedback</a></li>
-				<li><a href="generateReports">Reports</a></li>
+				<li class="active" id="publishWork"><a href="adminDashboard">Publish Work <span class="sr-only">(current)</span></a></li>
+				<li id="assignWork"><a href="assignWork">Assign work</a></li>
+				<li id="adminReviewFeedback"><a href="adminReviewFeedback">Review and feedback</a></li>
+				<li id="generateReports"><a href="generateReports">Reports</a></li>
+				<li id="manageTeam"><a href="manageTeam">Manage Team</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="manageTeam">Manage Team</a></li>
-				<li><a href="#">Reports</a></li>
+				<li class="logout"><span><a id="tse-header-logout" href="logout" class="btn btn-primary navbar-btn">Log Out</a></span></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

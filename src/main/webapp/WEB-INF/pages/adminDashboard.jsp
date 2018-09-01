@@ -24,11 +24,11 @@
 <body>
 <%@ include file = "adminNavBar.jsp" %>
 
-	<div class="row">
+	<%-- <div class="row">
+		<div class="col-md-4">Welcome, ${userDetails.firstName} ${userDetails.lastName} </div>
 		<div class="col-md-4"></div>
 		<div class="col-md-4"></div>
-		<div class="col-md-4">Welcome, ${userDetails.firstName}</div>
-	</div>
+	</div> --%>
 			
 			
 	<div class="container">
@@ -64,7 +64,7 @@
 		</div>
 
 			<div class="form-group">
-				<label for="exampleInputDeadline">Response Deadline</label> <input
+				<label for="exampleInputDeadline">Response Deadline (in hours)</label> <input
 					type="number" name="responseDeadline"
 					formControlName="responseDeadline" ngDefaultControl
 					class="form-control-alt" id="exampleInputDeadline"
@@ -79,4 +79,14 @@
 	</div>
 </body>
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+	$("#publishWork").addClass("active");
+	$("#assignWork").removeClass("active");
+	$("#adminReviewFeedback").removeClass("active");
+	$("#generateReports").removeClass("active");
+	$("#manageTeam").removeClass("active");
+	
+});
+</script>
 </html>

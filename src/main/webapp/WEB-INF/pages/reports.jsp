@@ -90,4 +90,14 @@
 	</div>
 </body>
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+	$("#publishWork").removeClass("active");
+	$("#assignWork").removeClass("active");
+	$("#adminReviewFeedback").removeClass("active");
+	$("#generateReports").addClass("active");
+	$("#manageTeam").removeClass("active");
+	
+});
+</script>
 </html>

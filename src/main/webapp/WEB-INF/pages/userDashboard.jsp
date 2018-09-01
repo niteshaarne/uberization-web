@@ -19,7 +19,6 @@
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://www.principalcdn.com/css/horizon/v2/apple-touch-icon.png">
 	
-	
 <script type="text/javascript">
 $( document ).ready(function() {
 	$("#userwork").addClass("active");
@@ -29,16 +28,15 @@ $( document ).ready(function() {
 });
 </script>
 
-
 </head>
 <body>
 <%@ include file = "userNavBar.jsp" %>
 
-	<div class="row">
+	<%-- <div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4"></div>
 		<div class="col-md-4">Welcome, ${userDetails.firstName}</div>
-	</div>
+	</div> --%>
 			
 			
 	<div class="container">
@@ -74,8 +72,9 @@ $( document ).ready(function() {
 		</div>
 		
 		<div class="form-group">
-			 <a class="btn btn-primary" href="userwork" role="button">Accept</a>
-			<button type="button" class="btn btn-danger" onclick="this.disabled=true">Decline</button>
+			 <!-- <a class="btn btn-primary" href="#" role="button" onclick="this.disabled=true">Accept</a> -->
+			 <button type="button" onclick="acceptClick();" class="btn btn-primary acceptBtn" onclick="this.disabled=true">Accept</button>
+			<button type="button" onclick="declineClick();" class="btn btn-danger declineBtn" onclick="this.disabled=true">Decline</button>
 		</div>
 		</div>
 	</div>
@@ -87,4 +86,43 @@ $( document ).ready(function() {
 	
 </body>
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>
+<script type="text/javascript">
+
+	  $('.acceptBtn').on('click', function() {
+		  $(this).parent().find(".acceptBtn").prop("disabled", true);
+		  $(this).parent().find(".declineBtn").prop("disabled", true);
+	    /* var getParentID = $(this).parent().attr('id');
+	    $("#" + getParentID).remove(); */
+	  });
+	
+/* function acceptClick() {
+    var lTable = document.getElementById("feedbackAndRatingTable");
+    var startDate = $("#startDate").val();
+    var endDate = $("#endDate").val();
+    if(startDate != undefined && startDate != null && startDate != '' && endDate != undefined && endDate != null && endDate != ''){
+    	lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
+    }
+} */
+</script>
+
+<script type="text/javascript">
+
+$('.declineBtn').on('click', function() {
+	  $(this).parent().find(".acceptBtn").prop("disabled", true);
+	  $(this).parent().find(".declineBtn").prop("disabled", true);
+  /* var getParentID = $(this).parent().attr('id');
+  $("#" + getParentID).remove(); */
+});
+	
+/* function declineClick() {
+    var lTable = document.getElementById("feedbackAndRatingTable");
+    var startDate = $("#startDate").val();
+    var endDate = $("#endDate").val();
+    if(startDate != undefined && startDate != null && startDate != '' && endDate != undefined && endDate != null && endDate != ''){
+    	lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
+    }
+} */
+</script>
+
+
 </html>
