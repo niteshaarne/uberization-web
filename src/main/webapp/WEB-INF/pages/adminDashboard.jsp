@@ -40,7 +40,7 @@
 		<div class="form-group">
 			<label for="exampleInputtypeOfWork">Type of work</label> 
 			<select name="typeOfWork" id="typeOfWorks" class="form-control">
-				<option value="Case Processing" Selected>Case processing</option>
+				<option value="Dental Claim Staging" Selected>Dental Claim Staging</option>
 				<option value="Medical Review">Medical review</option>
 			</select>
 		</div>
