@@ -83,9 +83,15 @@ public class UserController {
 		ModelAndView model = new ModelAndView("userwork");
 		try {
 			List<UserWork> userWorkList = new ArrayList<UserWork>();
+			
 			UserWork userwork1 = new UserWork(new Date(), 10, JobStatus.ASSIGNED.getDescription());
-			UserWork userwork2 = new UserWork(new Date(), 20, JobStatus.ASSIGNED.getDescription());
-			UserWork userwork3 = new UserWork(new Date(), 30, JobStatus.COMPLETED.getDescription());
+			Date dt = new Date();
+			Calendar c = Calendar.getInstance(); 
+			c.setTime(dt); 
+			c.add(Calendar.DATE, -2);
+			dt = c.getTime();
+			UserWork userwork2 = new UserWork(c.getTime(), 20, JobStatus.COMPLETED.getDescription());
+			UserWork userwork3 = new UserWork(c.getTime(), 30, JobStatus.COMPLETED.getDescription());
 			
 			userWorkList.add(userwork1);
 			userWorkList.add(userwork2);

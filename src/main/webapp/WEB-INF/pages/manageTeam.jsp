@@ -28,14 +28,13 @@
 		$("#adminReviewFeedback").removeClass("active");
 		$("#generateReports").removeClass("active");
 		$("#manageTeam").addClass("active");
-		$("#reviewTable").hide();
+		
 		
 		$('#userSelect').change(function() {
 			if ($(this).val() === 'approvedOption') {
 				$(".tr_false").hide();
 				$(".tr_true").show();
 				$(".hiddenTR").hide();
-				
 			}
 
 			if ($(this).val() === 'requestedOption') {
@@ -64,8 +63,6 @@
 		$("#trid_"+loopCounter).addClass("hiddenTR");
 		$(".hiddenTR").hide();
 	}
-	
-
 	
 </script>
 
@@ -107,7 +104,7 @@
   										<c:if test="${!counter.last}">,</c:if>
 									</c:forEach></td>
 								<td >
-									<button type="button" class="btn btn-primary btn-xs">View Resume</button> 
+									<a href="/generateReports"><button type="button" class="btn btn-primary btn-xs">View Resume</button></a>
 									<c:if test="${not user.isApproved }">
 										<button type="button" class="btn btn-primary btn-xs" id="approved_${loop.index}" onclick="markApproved(this)">Approve</button>
 									</c:if>
@@ -115,12 +112,8 @@
 								</td>
 							</tr>
 						</c:forEach>
-
 					</tbody>
 				</table>
-
-
-
 			</div>
 
 		</div>

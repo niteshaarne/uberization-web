@@ -52,7 +52,7 @@
 							<th scope="col">Cases completed</th>
 							<th scope="col">Cases accepted</th>
 							<th scope="col">Rating</th>
-							<th scope="col">Feedback</th>
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -63,7 +63,7 @@
 								<td>${useFeedbackAndRating.numberOfCasesAssigned}</td>
 								<td>${useFeedbackAndRating.numberOfCasesAccepted}</td>
 								<td>${useFeedbackAndRating.rating}</td>
-								<td>${useFeedbackAndRating.feedback}</td>
+								
 							</tr>
 						</c:forEach>
 					</tbody>

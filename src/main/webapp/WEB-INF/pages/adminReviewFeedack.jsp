@@ -33,7 +33,7 @@
 		$("#reviewTable").hide();
 
 		$("#submit").click(function() {
-			$("#reviewTable").show("slow");
+			$("#reviewTable").show();
 		});
 
 		calculateTotal();
@@ -161,12 +161,10 @@
 							<td id="totalAssigned"></td>
 							<td id="totalCompleted"></td>
 							<td id="totalAccepted"></td>
-
 						</tr>
 					</tbody>
 				</table>
 			</div>
-
 		</div>
 	</div>
 
