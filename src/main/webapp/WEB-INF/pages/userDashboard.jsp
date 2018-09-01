@@ -58,7 +58,7 @@ $( document ).ready(function() {
 			<div>${listValue.typeOfWork}</div>
 		</div>
 		<div class="form-group">
-			<label for="exampleInputnumberOfCases">Requested Date</label>
+			<label for="exampleInputnumberOfCases">Requested Service Date</label>
 			<div>${listValue.requestedDate}</div>
 		</div>
 		<div class="form-group">
@@ -86,7 +86,7 @@ $( document ).ready(function() {
 	
 	
 	
-	<c:forEach var="listValue" items="${jobAssignedDetailsUserList}">
+	<%-- <c:forEach var="listValue" items="${jobAssignedDetailsUserList}">
 	<input type="hidden" name= "jobId" value="${listValue.jobId}">
 		<div class="panel panel-success">
 		<div class="panel-heading">Assigned Work</div>
@@ -105,7 +105,7 @@ $( document ).ready(function() {
 		</div>
 	 </div>
 	</div>
-	</c:forEach>
+	</c:forEach> --%>
 	</div>
 	</div></div>
 	

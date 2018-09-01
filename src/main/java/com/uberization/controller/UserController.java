@@ -38,10 +38,10 @@ public class UserController {
 			JobDetailsUser jobDetailsUser1 = new JobDetailsUser();
 			JobDetailsUser jobDetailsUser2 = new JobDetailsUser();
 			
-			jobDetailsUser1.setJobDescription("Medical review");
+			jobDetailsUser1.setJobDescription("Dental claim staging");
 			jobDetailsUser1.setJobId("1");
 			jobDetailsUser1.setNumberOfCase(10);
-			jobDetailsUser1.setTypeOfWork("Medical review");
+			jobDetailsUser1.setTypeOfWork("Dental claim staging");
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
 		    Date date = new Date();  
 		    Calendar calendar = Calendar.getInstance();
