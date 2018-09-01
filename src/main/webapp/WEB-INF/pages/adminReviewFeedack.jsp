@@ -111,7 +111,7 @@
 							<td>Total</td>
 							<td>${totalAssigned}</td>
 							<td>${totalCompleted}</td>
-							<td id="totalAccepted">${totalCompleted}</td>
+							<td id="totalAccepted">${totalAccepted}</td>
 						</tr>
 					</tbody>
 				</table>

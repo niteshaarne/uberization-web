@@ -230,6 +230,7 @@ public class AdminController {
 		model.addObject("userTaskStatusList", userTaskStatusList);
 		model.addObject("totalAssigned", 30);
 		model.addObject("totalCompleted", 24);
+		model.addObject("totalAccepted", 0);
 		logger.info("adminReviewFeedback method End ...");
 		return model;
 
