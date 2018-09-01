@@ -42,28 +42,34 @@ public class UserController {
 			jobDetailsUser1.setJobId("1");
 			jobDetailsUser1.setNumberOfCase(10);
 			jobDetailsUser1.setTypeOfWork("Medical review");
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
 		    Date date = new Date();  
 		    Calendar calendar = Calendar.getInstance();
 		    calendar.setTime(date);
+		    /*calendar.add(Calendar.HOUR,4);*/
+		    
+		    calendar.add(Calendar.DATE, -1);
+		    jobDetailsUser1.setRequestedDate(formatter.format(date));
+		    //jobDetailsUser1.setRequestedDate(""+calendar.getTime());
+		    
+		    calendar.setTime(date);
 		    calendar.add(Calendar.HOUR,4);
 		    
-		    jobDetailsUser1.setRequestedDate(formatter.format(date));
 			jobDetailsUser1.setResponsedByDate(""+calendar.getTime());
 			
 			jobDetailsUserList.add(jobDetailsUser1);
-			
+		/*	
 			jobDetailsUser2.setJobDescription("Medical review");
 			jobDetailsUser2.setJobId("2");
 			jobDetailsUser2.setNumberOfCase(5);
-			jobDetailsUser2.setTypeOfWork("Case Processing");
+			jobDetailsUser2.setTypeOfWork("Medical review");
 		    Date date1 = new Date();  
 		    Calendar calendar1 = Calendar.getInstance();
 		    calendar1.setTime(date1);
 		    calendar1.add(Calendar.HOUR, 4);
 		    jobDetailsUser2.setRequestedDate(formatter.format(date1));
 			jobDetailsUser2.setResponsedByDate(""+calendar1.getTime());
-			jobDetailsUserList.add(jobDetailsUser2);
+			jobDetailsUserList.add(jobDetailsUser2);*/
 			
 		}catch (Exception e) {
 			System.out.println("Exception in getJobDetailsForNotifications() method " + e);
@@ -140,9 +146,13 @@ public class UserController {
 	public ModelAndView getNotifications(HttpServletRequest httpServletRequest) {
 		ModelAndView model = new ModelAndView("userDashboard");
 		ArrayList<JobDetailsUser> jobDetailsUserList;
+		ArrayList<JobDetailsUser> jobAssignedDetailsUserList;
 		try {
 			jobDetailsUserList = getJobDetailsForNotifications(new UserDetails());
         	model.addObject("jobDetailsUserList",jobDetailsUserList);
+        	jobAssignedDetailsUserList = new UserController().getAssignedJobDetailsForNotifications(new UserDetails());
+        	model.addObject("jobAssignedDetailsUserList",jobAssignedDetailsUserList);
+        	
         	System.out.println("User login...");
 			
 		}catch (Exception e) {
@@ -151,6 +161,49 @@ public class UserController {
 	        model.addObject("errorMsg", "Error while getting notification details.");
 		}
 		return model;
+	}
+
+	public ArrayList<JobDetailsUser> getAssignedJobDetailsForNotifications(UserDetails userDetails) {
+		System.out.println("in getJobDetailsForNotifications() method...");
+		logger.info("getJobDetailsForNotifications() method Start ...");
+		ArrayList<JobDetailsUser> jobDetailsUserList = new ArrayList<JobDetailsUser>();
+		try {
+			JobDetailsUser jobDetailsUser1 = new JobDetailsUser();
+			JobDetailsUser jobDetailsUser2 = new JobDetailsUser();
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+			
+			/*jobDetailsUser1.setJobDescription("Medical review");
+			jobDetailsUser1.setJobId("1");
+			jobDetailsUser1.setNumberOfCase(10);
+			jobDetailsUser1.setTypeOfWork("Medical review");
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();  
+		    Calendar calendar = Calendar.getInstance();
+		    calendar.setTime(date);
+		    calendar.add(Calendar.HOUR,4);
+		    
+		    jobDetailsUser1.setRequestedDate(formatter.format(date));
+			jobDetailsUser1.setResponsedByDate(""+calendar.getTime());
+			
+			jobDetailsUserList.add(jobDetailsUser1);*/
+			
+			jobDetailsUser2.setJobDescription("Dental claim staging");
+			jobDetailsUser2.setJobId("2");
+			jobDetailsUser2.setNumberOfCaseAssigned(5);
+			jobDetailsUser2.setTypeOfWork("Dental claim staging");
+		    Date date1 = new Date();  
+		    Calendar calendar1 = Calendar.getInstance();
+		    calendar1.setTime(date1);
+		    calendar1.add(Calendar.HOUR, 1);
+		    
+		    jobDetailsUser2.setRequestedDate(""+calendar1.getTime());
+			jobDetailsUserList.add(jobDetailsUser2);
+			
+		}catch (Exception e) {
+			System.out.println("Exception in getJobDetailsForNotifications() method " + e);
+			logger.error("Exception in getJobDetailsForNotifications() method " , e);
+		}
+		return jobDetailsUserList;
 	}
 	
 }

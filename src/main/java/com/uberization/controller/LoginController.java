@@ -47,6 +47,8 @@ public class LoginController {
 		UserCredentials userCredentials = new UserCredentials();
 		HttpSession session=httpServletRequest.getSession();
 		ArrayList<JobDetailsUser> jobDetailsUserList =  new ArrayList();
+		ArrayList<JobDetailsUser> jobAssignedDetailsUserList =  new ArrayList();
+		
         
 		try {
 	        emailId = httpServletRequest.getParameter("emailId");
@@ -79,6 +81,8 @@ public class LoginController {
 	        	model = new ModelAndView("userDashboard");
 	        	jobDetailsUserList = new UserController().getJobDetailsForNotifications(userDetails);
 	        	model.addObject("jobDetailsUserList",jobDetailsUserList);
+	        	jobAssignedDetailsUserList = new UserController().getAssignedJobDetailsForNotifications(userDetails);
+	        	model.addObject("jobAssignedDetailsUserList",jobAssignedDetailsUserList);
 	        	System.out.println("User login...");
 	        }
 	        model.addObject("userDetails",userDetails);

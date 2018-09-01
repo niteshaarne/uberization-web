@@ -1,4 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
@@ -47,7 +50,8 @@ $( document ).ready(function() {
 	<div class="col-md-4" >
 	<c:forEach var="listValue" items="${jobDetailsUserList}">
 	<input type="hidden" name= "jobId" value="${listValue.jobId}">
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
+		<div class="panel-heading">Available Work</div>
       <div class="panel-body">	
 		<div class="form-group">
 			<label for="exampleInputtypeOfWork">Type of work</label> 
@@ -58,17 +62,17 @@ $( document ).ready(function() {
 			<div>${listValue.requestedDate}</div>
 		</div>
 		<div class="form-group">
-			<label for="exampleInputDeadline">Number of Cases</label>
+			<label for="exampleInputDeadline">Total available cases</label>
 			<div>${listValue.numberOfCase}</div>
 		</div>
 	
 		<div class="form-group">
-			<label for="exampleInputDeadline">Available hours</label> 
+			<label for="exampleInputDeadline">Elected cases</label> 
 			<div><input type="number" name="availableHours" formControlName="availableHours" class="form-control-alt" id="exampleInputavailableHours" placeholder="Enter available hours" size="40"></div>
 		</div>
 		<div class="form-group">
 			<label for="exampleInputDeadline">Respond by</label> 
-			<div>${listValue.responsedByDate}</div>
+			<div class="text-danger"><strong>${listValue.responsedByDate} <i class="fa fa-clock-o" style="color : #006fa7";></i></strong></div>
 		</div>
 		
 		<div class="form-group">
@@ -79,6 +83,29 @@ $( document ).ready(function() {
 		</div>
 	</div>
 	</c:forEach>	
+	
+	
+	
+	<c:forEach var="listValue" items="${jobAssignedDetailsUserList}">
+	<input type="hidden" name= "jobId" value="${listValue.jobId}">
+		<div class="panel panel-success">
+		<div class="panel-heading">Assigned Work</div>
+      <div class="panel-body">	
+		<div class="form-group">
+			<label for="exampleInputtypeOfWork">Type of work</label> 
+			<div>${listValue.typeOfWork}</div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputnumberOfCases">Requested Date</label>
+			<div>${listValue.requestedDate}</div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputDeadline">Number of Cases Assigned</label>
+			<div>${listValue.numberOfCaseAssigned}</div>
+		</div>
+	 </div>
+	</div>
+	</c:forEach>
 	</div>
 	</div></div>
 	

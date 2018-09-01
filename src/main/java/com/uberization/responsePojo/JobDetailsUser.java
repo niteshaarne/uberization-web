@@ -8,8 +8,23 @@ public class JobDetailsUser {
 	private String requestedDate;
 	
 	private int numberOfCase;
+	private int numberOfCaseAssigned;
 	private String responsedByDate;
 	private String availableHours;
+	
+	
+	/**
+	 * @return the numberOfCaseAssigned
+	 */
+	public int getNumberOfCaseAssigned() {
+		return numberOfCaseAssigned;
+	}
+	/**
+	 * @param numberOfCaseAssigned the numberOfCaseAssigned to set
+	 */
+	public void setNumberOfCaseAssigned(int numberOfCaseAssigned) {
+		this.numberOfCaseAssigned = numberOfCaseAssigned;
+	}
 	/**
 	 * @return the jobId
 	 */
@@ -105,6 +120,7 @@ public class JobDetailsUser {
 		result = prime * result + ((jobDescription == null) ? 0 : jobDescription.hashCode());
 		result = prime * result + ((jobId == null) ? 0 : jobId.hashCode());
 		result = prime * result + numberOfCase;
+		result = prime * result + numberOfCaseAssigned;
 		result = prime * result + ((requestedDate == null) ? 0 : requestedDate.hashCode());
 		result = prime * result + ((responsedByDate == null) ? 0 : responsedByDate.hashCode());
 		result = prime * result + ((typeOfWork == null) ? 0 : typeOfWork.hashCode());
@@ -139,6 +155,8 @@ public class JobDetailsUser {
 			return false;
 		if (numberOfCase != other.numberOfCase)
 			return false;
+		if (numberOfCaseAssigned != other.numberOfCaseAssigned)
+			return false;
 		if (requestedDate == null) {
 			if (other.requestedDate != null)
 				return false;
@@ -162,8 +180,9 @@ public class JobDetailsUser {
 	@Override
 	public String toString() {
 		return "JobDetailsUser [jobId=" + jobId + ", typeOfWork=" + typeOfWork + ", jobDescription=" + jobDescription
-				+ ", requestedDate=" + requestedDate + ", numberOfCase=" + numberOfCase + ", responsedByDate="
-				+ responsedByDate + ", availableHours=" + availableHours + "]";
+				+ ", requestedDate=" + requestedDate + ", numberOfCase=" + numberOfCase + ", numberOfCaseAssigned="
+				+ numberOfCaseAssigned + ", responsedByDate=" + responsedByDate + ", availableHours=" + availableHours
+				+ "]";
 	}
 	
 }
