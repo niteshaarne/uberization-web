@@ -68,7 +68,7 @@ $( document ).ready(function() {
 	
 		<div class="form-group">
 			<label for="exampleInputDeadline">Elected cases</label> 
-			<div><input type="number" name="availableHours" formControlName="availableHours" class="form-control-alt" id="exampleInputavailableHours" placeholder="Enter available hours" size="40"></div>
+			<div><input type="number" name="availableHours" formControlName="availableHours" class="form-control-alt" id="exampleInputavailableHours" placeholder="Enter count" size="40"></div>
 		</div>
 		<div class="form-group">
 			<label for="exampleInputDeadline">Respond by</label> 

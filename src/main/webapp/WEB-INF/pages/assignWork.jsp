@@ -36,8 +36,8 @@
 			<div class="form-group">
 			<label for="inputtypeOfWork">Type of work</label> 
 				  <select class="form-control">
+				    <option>Dental Claim</option>
 		            <option>Medical Review</option>
-		            <option>Case Processing</option>
 		          </select>
 			</div>
 			</div>
@@ -63,11 +63,11 @@
 				<tbody>
             		<tr>
 	            		<td class="active">Published</td>
-	              		<td>100</td>
+	              		<td id="totalPublished">${totalPublished}</td>
               		</tr>
               		<tr>
 	            		<td class="active">Unassigned</td>
-	              		<td>10</td>
+	              		<td id="totalUnassigned">${totalUnassigned}</td>
               		</tr>
 			</table>	
 		</div>
@@ -142,10 +142,14 @@ $( document ).ready(function() {
 <script type="text/javascript">
 	function calculateAssigned() {
 		var total = 0;
+		var unAssigned = Number($("#totalPublished").text());
+		console.log(unAssigned);
 		$(".assignedTextBox").each(function() {
 			total = Number(total) + Number($(this).val());
+			unAssigned = unAssigned - Number($(this).val());
 		});
 		$("#totalAssigned").html(total);
+		$("#totalUnassigned").html(unAssigned);
 	}
 </script>
 </html>
