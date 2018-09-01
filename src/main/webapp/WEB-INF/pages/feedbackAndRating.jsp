@@ -28,20 +28,20 @@
 
 	<div class="container">
 	<div class="row" style="margin-bottom: 5%;">
-		<div class="col-md-2"><label >Date Range</label></div>
-		<div class="col-md-3"><div class="input-group date">
+		<div class="col-md-2 col-xs-12"><label >Date Range</label></div>
+		<div class="col-md-3 col-xs-12"><div class="input-group date">
   <input type="text" maxlength="14" id="startDate" placeholder="MM/DD/YYYY" data-input-mask-type="date" class="form-control horizon-date-picker horizon-input-mask" data-provide="horizon-date-picker" />
   <span class="input-group-addon">
       <i class="fa fa-calendar"></i>
   </span>
 </div></div>
-		<div class="col-md-3"><div class="input-group date">
+		<div class="col-md-3 col-xs-12"><div class="input-group date">
   <input type="text" maxlength="14" id="endDate" placeholder="MM/DD/YYYY" data-input-mask-type="date" class="form-control horizon-date-picker horizon-input-mask" data-provide="horizon-date-picker" />
   <span class="input-group-addon">
       <i class="fa fa-calendar"></i>
   </span>
 </div></div>
-		<div class="col-md-3"><button type="button" class="btn btn-primary" onclick="toggleDiv();">Submit</button></div>
+		<div class="col-md-3 col-xs-12"><button type="button" class="btn btn-primary" onclick="toggleDiv();">Submit</button></div>
 	</div>
 		<div class="row">
 			<div class="table-responsive">
