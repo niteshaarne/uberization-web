@@ -80,7 +80,7 @@
             <tr class="tr-divider">
               <th class="text-center">Name</th>
               <th class="text-center">Aggregate Rating</th>
-              <th class="text-center">Availability</th>
+              <th class="text-center">Elected</th>
               <th class="text-center">Assigned</th>
             </tr>
           </thead>
