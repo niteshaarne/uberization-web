@@ -31,7 +31,7 @@ function markComplete(ele){
 	var id = ele.id;
 	var loopCounter = id.substr(id.indexOf("_") + 1);
 	$("#jobStatus_"+loopCounter).html("Completed");
-	 $("#jobStatus_"+loopCounter).css("color", "#ec2e19");
+	 $("#jobStatus_"+loopCounter).css("color", "green");
 	$("#"+id).prop('disabled', true);
 	$("#"+id).toggleClass('btn-primary btn-default');
 	
@@ -64,7 +64,7 @@ function markComplete(ele){
 								
 								<td id="jobStatus_${loop.index}">
 									<c:if test="${userwork.jobstatus=='Completed'}">
-										<span style="color:red;">${userwork.jobstatus}</span>
+										<span style="color:green;">${userwork.jobstatus}</span>
 									</c:if>
 									
 									<c:if test="${userwork.jobstatus!='Completed'}">

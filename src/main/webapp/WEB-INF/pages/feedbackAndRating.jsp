@@ -49,8 +49,8 @@
 					<thead class="black white-text">
 						<tr class="bg-light-blue">
 							<th scope="col">Date</th>
-							<th scope="col">Cases assigned</th>
-							<th scope="col">Cases Completed</th>
+							<th scope="col">Cases completed</th>
+							<th scope="col">Cases accepted</th>
 							<th scope="col">Rating</th>
 							<th scope="col">Feedback</th>
 						</tr>
