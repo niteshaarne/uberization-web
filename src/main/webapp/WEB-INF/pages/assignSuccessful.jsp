@@ -37,4 +37,14 @@
 
 </body>
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+	$("#publishWork").removeClass("active");
+	$("#assignWork").addClass("active");
+	$("#adminReviewFeedback").removeClass("active");
+	$("#generateReports").removeClass("active");
+	$("#manageTeam").removeClass("active");
+	
+});
+</script>
 </html>
