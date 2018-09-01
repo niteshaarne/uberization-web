@@ -81,10 +81,10 @@
 					<thead class="black white-text">
 						<tr class="bg-light-blue">
 							<th scope="col">Name</th>
-							<th scope="col">Assigned</th>
-							<th scope="col">Completed</th>
-							<th scope="col">Acceptable</th>
-							<th scope="col">Rating</th>
+							<th scope="col">Case Assigned</th>
+							<th scope="col">Case Completed</th>
+							<th scope="col">Acceptable Cases</th>
+							<th scope="col">Rating(1-5)</th>
 							<th scope="col">Action</th>
 						</tr>
 					</thead>
@@ -98,9 +98,9 @@
 								<td>${userTaskStatus.taskCompleted}</td>
 								<td><input type="number" onchange="calculateAccepted(this)"
 									class="acceptableTextBox" id="completebutton_${loop.index}"
-									placeholder="Acceptable tasks" size="10"></td>
+									placeholder="Count" size="5"></td>
 								<td><input type="number" id="exampleInputlastName"
-									placeholder="Rating" size="10"></td>
+									placeholder="Rating" size="5"></td>
 								<td>
 									<button type="button" class="btn btn-primary btn-xs">Sign
 										off</button>
