@@ -32,6 +32,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.uberization.responsePojo.JobPostingDetails;
 import com.uberization.responsePojo.UserDetails;
 import com.uberization.responsePojo.UserTaskStatus;
+import com.uberization.responsePojo.UserWork;
 import com.uberization.util.SkillEnum;
 import com.uberization.util.WebAppConstants;
 
@@ -109,8 +110,8 @@ public class AdminController {
 		logger.info("assignWork() method Start ...");
 		ModelAndView model = null;
 		try {
-			List<UserTaskStatus> userTaskDetailsList = new ArrayList<UserTaskStatus>();
-			userTaskDetailsList = createUserTaskDetails();
+			List<UserWork> userWorkDetailsList = new ArrayList<UserWork>();
+			userWorkDetailsList = createUserWorkDetails();
 			model = new ModelAndView("assignWork");
 			
 		} catch (Exception e) {
@@ -280,11 +281,29 @@ public class AdminController {
 		return null == startDate && null == endDate && null == workType;
 	}
 	
-	private List<UserTaskStatus> createUserTaskDetails() {
-		List<UserTaskStatus> userTaskStatusList = new ArrayList<UserTaskStatus>();
-		UserTaskStatus userTaskStatus = new UserTaskStatus();
+	private List<UserWork> createUserWorkDetails() {
+		List<UserWork> userWorkDetailsList = new ArrayList<UserWork>();
+		UserWork userWork1 = new UserWork();
+		userWork1.setUsername("Aritra Banerjee");
+		userWork1.setRating(4);
+		userWork1.setNumberOfCasesAccepted(20);
+		
+		UserWork userWork2 = new UserWork();
+		userWork2.setUsername("Nitesh Aarne");
+		userWork2.setRating(5);
+		userWork2.setNumberOfCasesAccepted(40);
+		
+		UserWork userWork3 = new UserWork();
+		userWork3.setUsername("Srutarshi Dutta");
+		userWork3.setRating(4);
+		userWork3.setNumberOfCasesAccepted(30);
+		
+		userWorkDetailsList.add(userWork1);
+		userWorkDetailsList.add(userWork2);
+		userWorkDetailsList.add(userWork3);
+		
 	
-		return userTaskStatusList;
+		return userWorkDetailsList;
 	}
 	
 	

@@ -76,8 +76,8 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="table-responsive">
-				<table class="table" id="reviewTable">
+			<div>
+				<table class="table table-responsive" id="reviewTable">
 					<thead class="black white-text">
 						<tr class="bg-light-blue">
 							<th scope="col">Name</th>
@@ -112,6 +112,8 @@
 							<td>${totalAssigned}</td>
 							<td>${totalCompleted}</td>
 							<td id="totalAccepted">${totalAccepted}</td>
+							<td></td>
+							<td></td>
 						</tr>
 					</tbody>
 				</table>
