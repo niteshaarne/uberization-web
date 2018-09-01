@@ -207,22 +207,22 @@ public class AdminController {
 		List<UserTaskStatus> userTaskStatusList = new ArrayList<UserTaskStatus>();
 		UserTaskStatus userTaskStatus = new UserTaskStatus();
 		userTaskStatus.setJobID(1);
-		userTaskStatus.setTaskAssigned(10);
-		userTaskStatus.setTaskCompleted(8);
+		userTaskStatus.setTaskAssigned(20);
+		userTaskStatus.setTaskCompleted(20);
 		userTaskStatus.setUserName("Aritra Banerjee");
 		userTaskStatus.setUserID(1);
 
 		UserTaskStatus userTaskStatus1 = new UserTaskStatus();
 		userTaskStatus1.setJobID(2);
-		userTaskStatus1.setTaskAssigned(20);
-		userTaskStatus1.setTaskCompleted(16);
+		userTaskStatus1.setTaskAssigned(30);
+		userTaskStatus1.setTaskCompleted(30);
 		userTaskStatus1.setUserName("Nitesh Aarne");
 		userTaskStatus1.setUserID(2);
 		
 		UserTaskStatus userTaskStatus2 = new UserTaskStatus();
 		userTaskStatus2.setJobID(3);
 		userTaskStatus2.setTaskAssigned(30);
-		userTaskStatus2.setTaskCompleted(25);
+		userTaskStatus2.setTaskCompleted(30);
 		userTaskStatus2.setUserName("Srutarshi Dutta");
 		userTaskStatus2.setUserID(3);
 
@@ -231,8 +231,8 @@ public class AdminController {
 		userTaskStatusList.add(userTaskStatus2);
 
 		model.addObject("userTaskStatusList", userTaskStatusList);
-		model.addObject("totalAssigned", 60);
-		model.addObject("totalCompleted", 49);
+		model.addObject("totalAssigned", 80);
+		model.addObject("totalCompleted", 80);
 		model.addObject("totalAccepted", 0);
 		logger.info("adminReviewFeedback method End ...");
 		return model;
