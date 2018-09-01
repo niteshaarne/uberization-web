@@ -29,7 +29,7 @@
 			<div class="row util-margin-top-20">	
 		   	 <div class="col-md-4 col-xs-12">
 		   	 <form action="goToPublish" method="POST">
-		       <a class="btn btn-primary" href="adminDashboard" role="button" id="adminDashboard">New Job Post</a>
+		       <a class="btn btn-primary" href="adminDashboard" role="button" id="adminDashboard">Publish New Work</a>
 		      </form>
 		    </div>
 		</div>
@@ -37,13 +37,4 @@
 
 </body>
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>
-<script type="text/javascript">
-function toggleTable() {
-    var lTable = document.getElementById("freelancerTable");
-    lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
-    
-    var lTable2 = document.getElementById("publishDetailsTable");
-    lTable2.style.display = (lTable2.style.display == "table") ? "none" : "table";
-}
-</script>
 </html>
