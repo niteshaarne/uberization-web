@@ -25,7 +25,7 @@
 <%@ include file = "adminNavBar.jsp" %>
 			
 	<div class="container">	
-			<h2>Successfully Assigned Work</h2>
+			<h2>Successfully Published Work</h2>
 			<div class="row util-margin-top-20">	
 		   	 <div class="col-md-4 col-xs-12">
 		   	 <form action="goToPublish" method="POST">

@@ -84,8 +84,7 @@ public class AdminController {
 			HttpSession session = httpServletRequest.getSession(false);
 			UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
 			System.out.println("userDetails from session : " + userDetails);
-			model = new ModelAndView("adminDashboard");
-			model.addObject("userDetails", userDetails);
+			model = new ModelAndView("publishSuccessful");
 			logger.info("publishWork() method End ...");
 
 		} catch (Exception e) {
