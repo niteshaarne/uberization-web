@@ -23,9 +23,12 @@
 <script src="https://www.principalcdn.com/css/horizon/v2/horizon.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#publishwork").removeClass("active");
+		$("#publishWork").removeClass("active");
 		$("#assignWork").removeClass("active");
-		$("#reviewFeedback").addClass("active");
+		$("#adminReviewFeedback").removeClass("active");
+		$("#generateReports").removeClass("active");
+		$("#manageTeam").addClass("active");
+		$("#reviewTable").hide();
 		
 		$('#userSelect').change(function() {
 			if ($(this).val() === 'approvedOption') {
