@@ -3,6 +3,7 @@ package com.uberization.responsePojo;
 import java.util.Date;
 
 public class UserWork {
+	private String username;
 	private Date jobPostedDate;
 	private Integer numberOfCasesAssigned;
 	private String jobstatus;
@@ -148,5 +149,13 @@ public class UserWork {
 
 	public void setJobstatus(String jobstatus) {
 		this.jobstatus = jobstatus;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

@@ -31,8 +31,7 @@
 		$("#generateReports").removeClass("active");
 		$("#manageTeam").removeClass("active");
 		$("#reviewTable").hide();
-		
-		
+
 		$("#submit").click(function() {
 			$("#reviewTable").show("slow");
 		});
@@ -40,47 +39,59 @@
 		calculateTotal();
 	});
 
-	function calculateTotal(){
+	function calculateTotal() {
 		var totalAssigned = 0;
-		$('[id^=taskAssigned_]').each(function() {
-		    var number = this.id.split('_').pop();
-		    if ( $("#tr_"+number).css('display') != 'none' && $("#tr_"+number).css("visibility") != "hidden"){
-		    	  totalAssigned = totalAssigned + Number($("#taskAssigned_"+number).html());
-		    	  
-		    }
-		});
-		
+		$('[id^=taskAssigned_]')
+				.each(
+						function() {
+							var number = this.id.split('_').pop();
+							if ($("#tr_" + number).css('display') != 'none'
+									&& $("#tr_" + number).css("visibility") != "hidden") {
+								totalAssigned = totalAssigned
+										+ Number($("#taskAssigned_" + number)
+												.html());
+
+							}
+						});
+
 		var totalCompleted = 0;
-		$('[id^=taskCompleted_]').each(function() {
-		    var number = this.id.split('_').pop();
-		    if ( $("#tr_"+number).css('display') != 'none' && $("#tr_"+number).css("visibility") != "hidden"){
-		    	 totalCompleted = totalCompleted + Number($("#taskCompleted_"+number).html());
-		    }
-		   
-		});
-		
+		$('[id^=taskCompleted_]')
+				.each(
+						function() {
+							var number = this.id.split('_').pop();
+							if ($("#tr_" + number).css('display') != 'none'
+									&& $("#tr_" + number).css("visibility") != "hidden") {
+								totalCompleted = totalCompleted
+										+ Number($("#taskCompleted_" + number)
+												.html());
+							}
+
+						});
+
 		$("#totalAssigned").html(totalAssigned);
 		$("#totalCompleted").html(totalCompleted);
 		calculateAccepted();
 	}
-	
-	function signOff(ele){
+
+	function signOff(ele) {
 		var id = ele.id;
 		var loopCounter = id.substr(id.indexOf("_") + 1);
-		$("#tr_"+loopCounter).hide();
+		$("#tr_" + loopCounter).hide();
 		calculateTotal()
 	}
-	
-	
+
 	function calculateAccepted() {
 		var total = 0;
-		$(".acceptableTextBox").each(function() {
-			var number = this.id.split('_').pop();
-			 if ( $("#tr_"+number).css('display') != 'none' && $("#tr_"+number).css("visibility") != "hidden"){
-				 total = Number(total) + Number($(this).val());
-		     }	
-		});
-		
+		$(".acceptableTextBox")
+				.each(
+						function() {
+							var number = this.id.split('_').pop();
+							if ($("#tr_" + number).css('display') != 'none'
+									&& $("#tr_" + number).css("visibility") != "hidden") {
+								total = Number(total) + Number($(this).val());
+							}
+						});
+
 		$("#totalAccepted").html(total);
 	}
 </script>
@@ -115,15 +126,15 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="table-responsive">
-				<table class="table" id="reviewTable">
+			<div>
+				<table class="table table-responsive" id="reviewTable">
 					<thead class="black white-text">
 						<tr class="bg-light-blue">
 							<th scope="col">Name</th>
-							<th scope="col">Assigned</th>
-							<th scope="col">Completed</th>
-							<th scope="col">Acceptable</th>
-							<th scope="col">Rating</th>
+							<th scope="col">Case Assigned</th>
+							<th scope="col">Case Completed</th>
+							<th scope="col">Acceptable Cases</th>
+							<th scope="col">Rating(1-5)</th>
 							<th scope="col">Action</th>
 						</tr>
 					</thead>
@@ -136,12 +147,12 @@
 								<td id="taskAssigned_${loop.index}">${userTaskStatus.taskAssigned}</td>
 								<td id="taskCompleted_${loop.index}">${userTaskStatus.taskCompleted}</td>
 								<td><input type="number" onchange="calculateAccepted(this)"
-									class="acceptableTextBox" id="completebutton_${loop.index}"
-									></td>
-								<td><input type="number" id="exampleInputlastName"
-									></td>
+									class="acceptableTextBox" id="completebutton_${loop.index}"></td>
+								<td><input type="number" id="exampleInputlastName"></td>
 								<td>
-									<button type="button" id="signOff_${loop.index}" onclick="signOff(this)" class="btn btn-primary btn-xs">Sign off</button>
+									<button type="button" id="signOff_${loop.index}"
+										onclick="signOff(this)" class="btn btn-primary btn-xs">Sign
+										off</button>
 								</td>
 							</tr>
 						</c:forEach>
@@ -150,6 +161,7 @@
 							<td id="totalAssigned"></td>
 							<td id="totalCompleted"></td>
 							<td id="totalAccepted"></td>
+
 						</tr>
 					</tbody>
 				</table>
