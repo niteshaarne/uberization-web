@@ -114,6 +114,7 @@ public class AdminController {
 			userWorkDetailsList = createUserWorkDetails();
 			model = new ModelAndView("assignWork");
 			model.addObject("userWorkDetailsList", userWorkDetailsList);
+			model.addObject("totalPublished", 100);
 			model.addObject("totalElected", 90);
 			
 		} catch (Exception e) {

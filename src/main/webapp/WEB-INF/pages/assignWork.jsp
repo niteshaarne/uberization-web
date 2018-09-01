@@ -63,11 +63,11 @@
 				<tbody>
             		<tr>
 	            		<td class="active">Published</td>
-	              		<td>100</td>
+	              		<td>${totalPublished}</td>
               		</tr>
               		<tr>
 	            		<td class="active">Unassigned</td>
-	              		<td>10</td>
+	              		<td id="totalUnassigned">${totalUnassigned}</td>
               		</tr>
 			</table>	
 		</div>
