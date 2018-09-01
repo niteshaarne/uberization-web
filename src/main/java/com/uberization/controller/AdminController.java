@@ -113,6 +113,8 @@ public class AdminController {
 			List<UserWork> userWorkDetailsList = new ArrayList<UserWork>();
 			userWorkDetailsList = createUserWorkDetails();
 			model = new ModelAndView("assignWork");
+			model.addObject("userWorkDetailsList", userWorkDetailsList);
+			model.addObject("totalElected", 90);
 			
 		} catch (Exception e) {
 			System.out.println("Exception in assignWork");
