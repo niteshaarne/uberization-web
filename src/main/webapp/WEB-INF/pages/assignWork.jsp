@@ -64,7 +64,7 @@
 	              		<td>100</td>
               		</tr>
               		<tr>
-	            		<td class="active">Pending</td>
+	            		<td class="active">Unassigned</td>
 	              		<td>10</td>
               		</tr>
 			</table>	
@@ -80,7 +80,7 @@
             <tr class="tr-divider">
               <th class="text-center">Name</th>
               <th class="text-center">Aggregate Rating</th>
-              <th class="text-center">Availability</th>
+              <th class="text-center">Elected</th>
               <th class="text-center">Assigned</th>
             </tr>
           </thead>
@@ -115,8 +115,10 @@
 		<div class="row">
 		<div class="col-md-4 col-xs-12"></div>
 		<div class="col-md-4 col-xs-12"></div>
+		<div class="col-md-1 col-xs-12"></div>
+		<div class="col-md-1 col-xs-12"></div>
 			<input type="submit" [disabled] ="!formdata.valid"
-					class="btn btn-primary" value="Publish to All" id="publishAll" style="display:none;">
+					class="btn btn-primary" value="Assign" id="publishAll" style="display:none;">
 		</div>
 		</form>
 	</div>
@@ -142,5 +144,14 @@ $( document ).ready(function() {
 	$("#manageTeam").removeClass("active");
 	
 });
+</script>
+<script type="text/javascript">
+	function calculateAccepted() {
+		var total = 0;
+		$(".acceptableTextBox").each(function() {
+			total = Number(total) + Number($(this).val());
+		});
+		$("#totalAccepted").html(total);
+	}
 </script>
 </html>

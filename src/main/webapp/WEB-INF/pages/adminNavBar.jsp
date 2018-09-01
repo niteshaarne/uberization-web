@@ -20,10 +20,10 @@
 				<li id="assignWork"><a href="assignWork">Assign work</a></li>
 				<li id="adminReviewFeedback"><a href="adminReviewFeedback">Review and feedback</a></li>
 				<li id="generateReports"><a href="generateReports">Reports</a></li>
+				<li id="manageTeam"><a href="manageTeam">Manage Team</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li id="manageTeam"><a href="#">Manage Team</a></li>
 				<li class="logout"><span><a id="tse-header-logout" href="logout" class="btn btn-primary navbar-btn">Log Out</a></span></li>
 			</ul>
 		</div>

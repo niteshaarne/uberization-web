@@ -1,8 +1,10 @@
 package com.uberization.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -30,6 +32,8 @@ import com.sun.jersey.api.client.WebResource;
 import com.uberization.responsePojo.JobPostingDetails;
 import com.uberization.responsePojo.UserDetails;
 import com.uberization.responsePojo.UserTaskStatus;
+import com.uberization.responsePojo.UserWork;
+import com.uberization.util.SkillEnum;
 import com.uberization.util.WebAppConstants;
 
 @Controller
@@ -81,8 +85,7 @@ public class AdminController {
 			HttpSession session = httpServletRequest.getSession(false);
 			UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
 			System.out.println("userDetails from session : " + userDetails);
-			model = new ModelAndView("adminDashboard");
-			model.addObject("userDetails", userDetails);
+			model = new ModelAndView("publishSuccessful");
 			logger.info("publishWork() method End ...");
 
 		} catch (Exception e) {
@@ -100,16 +103,24 @@ public class AdminController {
 	 * @return
 	 */
 
-	@RequestMapping(value = "/assignWork", method = { RequestMethod.GET, RequestMethod.POST }, produces = {MediaType.TEXT_HTML_VALUE })
+	@RequestMapping(value = "/assignWork", method = { RequestMethod.GET, RequestMethod.POST }, produces = {
+			MediaType.TEXT_HTML_VALUE })
 	public ModelAndView assignWork(HttpServletRequest httpServletRequest) {
 		System.out.println("in assignWork() method...");
 		logger.info("assignWork() method Start ...");
 		ModelAndView model = null;
-		model = new ModelAndView("assignWork");
+		try {
+			List<UserWork> userWorkDetailsList = new ArrayList<UserWork>();
+			userWorkDetailsList = createUserWorkDetails();
+			model = new ModelAndView("assignWork");
+			
+		} catch (Exception e) {
+			System.out.println("Exception in assignWork");
+		}	
 		logger.info("assignWork() method End ...");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/adminDashboard", method = { RequestMethod.GET, RequestMethod.POST }, produces = {MediaType.TEXT_HTML_VALUE })
 	public ModelAndView getAdminDashboard(HttpServletRequest httpServletRequest) {
 		System.out.println("in getAdminDashboard() method...");
@@ -120,22 +131,6 @@ public class AdminController {
 		return model;
 	}
 	
-	
-
-	@RequestMapping(value = "/searchWorkDetails", method = RequestMethod.POST, produces = { MediaType.TEXT_HTML_VALUE })
-	public ModelAndView searchPostedWorkDetails(HttpServletRequest httpServletRequest) {
-		System.out.println("In search post work....");
-		logger.info("search post work method starts");
-		ModelAndView model = null;
-		String typeOfWork = null;
-		String dateOfWork = null;
-		try {
-			model = new ModelAndView("assignWork");
-		} catch (Exception e) {
-			logger.equals("Excpetion in searchWorkDetails" + e);
-		}
-		return model;
-	}
 
 	@RequestMapping(value = "/assignWorkPage", method = RequestMethod.POST, produces = { MediaType.TEXT_HTML_VALUE })
 	public ModelAndView assignWorkService(HttpServletRequest httpServletRequest) {
@@ -211,32 +206,105 @@ public class AdminController {
 		userTaskStatus.setJobID(1);
 		userTaskStatus.setTaskAssigned(10);
 		userTaskStatus.setTaskCompleted(8);
-		userTaskStatus.setUserName("John Doe");
+		userTaskStatus.setUserName("Aritra Banerjee");
 		userTaskStatus.setUserID(1);
 
 		UserTaskStatus userTaskStatus1 = new UserTaskStatus();
 		userTaskStatus1.setJobID(2);
 		userTaskStatus1.setTaskAssigned(20);
 		userTaskStatus1.setTaskCompleted(16);
-		userTaskStatus1.setUserName("Jane Doe");
+		userTaskStatus1.setUserName("Nitesh Aarne");
 		userTaskStatus1.setUserID(2);
+		
+		UserTaskStatus userTaskStatus2 = new UserTaskStatus();
+		userTaskStatus2.setJobID(3);
+		userTaskStatus2.setTaskAssigned(30);
+		userTaskStatus2.setTaskCompleted(25);
+		userTaskStatus2.setUserName("Srutarshi Dutta");
+		userTaskStatus2.setUserID(3);
 
 		userTaskStatusList.add(userTaskStatus);
 		userTaskStatusList.add(userTaskStatus1);
+		userTaskStatusList.add(userTaskStatus2);
 
 		model.addObject("userTaskStatusList", userTaskStatusList);
-		model.addObject("totalAssigned", 30);
-		model.addObject("totalCompleted", 24);
+		model.addObject("totalAssigned", 60);
+		model.addObject("totalCompleted", 49);
+		model.addObject("totalAccepted", 0);
 		logger.info("adminReviewFeedback method End ...");
 		return model;
 
+	}
+
+	@RequestMapping(value = "/manageTeam", method = RequestMethod.GET, produces = { MediaType.TEXT_HTML_VALUE })
+	public ModelAndView manageTeam(HttpServletRequest httpServletRequest) {
+		ModelAndView model = new ModelAndView("manageTeam");
+		UserDetails user1 = new UserDetails();
+		user1.setContactNumber("8983089016");
+		user1.setEmail("sujaysudeep93@gmail.com");
+		user1.setFirstName("Sujay");
+		user1.setLastName("Anakkathil");
+		user1.setIsApproved(true);
+		user1.setSkillSet(Arrays.asList(SkillEnum.CASE_PROCESSING, SkillEnum.MEDICAL_REVIEW));
+
+		UserDetails user2 = new UserDetails();
+		user2.setContactNumber("749287392");
+		user2.setEmail("nitesh@gmail.com");
+		user2.setFirstName("Nitesh");
+		user2.setLastName("Aarne");
+		user2.setIsApproved(true);
+		user2.setSkillSet(Arrays.asList(SkillEnum.CASE_PROCESSING, SkillEnum.MEDICAL_REVIEW));
+
+		UserDetails user3 = new UserDetails();
+		user3.setContactNumber("9823718343");
+		user3.setEmail("aniruddha@gmail.com");
+		user3.setFirstName("Aniruddha");
+		user3.setLastName("Borbodai");
+		user3.setIsApproved(false);
+		user3.setSkillSet(Arrays.asList(SkillEnum.MEDICAL_REVIEW));
+
+		UserDetails user4 = new UserDetails();
+		user4.setContactNumber("8232728388");
+		user4.setEmail("aritra@gmail.com");
+		user4.setFirstName("Aritra");
+		user4.setLastName("Banerjee");
+		user4.setIsApproved(true);
+		user4.setSkillSet(Arrays.asList(SkillEnum.CASE_PROCESSING));
+	
+		
+		model.addObject("userdetailsList", Arrays.asList(user1,user2,user3,user4));
+
+		return model;
 	}
 
 	private boolean noInputParams(final String startDate, final String endDate, final String workType) {
 		return null == startDate && null == endDate && null == workType;
 	}
 	
+	private List<UserWork> createUserWorkDetails() {
+		List<UserWork> userWorkDetailsList = new ArrayList<UserWork>();
+		UserWork userWork1 = new UserWork();
+		userWork1.setUsername("Aritra Banerjee");
+		userWork1.setRating(4);
+		userWork1.setNumberOfCasesAccepted(20);
+		
+		UserWork userWork2 = new UserWork();
+		userWork2.setUsername("Nitesh Aarne");
+		userWork2.setRating(5);
+		userWork2.setNumberOfCasesAccepted(40);
+		
+		UserWork userWork3 = new UserWork();
+		userWork3.setUsername("Srutarshi Dutta");
+		userWork3.setRating(4);
+		userWork3.setNumberOfCasesAccepted(30);
+		
+		userWorkDetailsList.add(userWork1);
+		userWorkDetailsList.add(userWork2);
+		userWorkDetailsList.add(userWork3);
+		
 	
+		return userWorkDetailsList;
+	}
 	
 	
 }
