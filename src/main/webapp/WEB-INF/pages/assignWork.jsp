@@ -64,7 +64,7 @@
 	              		<td>100</td>
               		</tr>
               		<tr>
-	            		<td class="active">Pending</td>
+	            		<td class="active">Unassigned</td>
 	              		<td>10</td>
               		</tr>
 			</table>	
