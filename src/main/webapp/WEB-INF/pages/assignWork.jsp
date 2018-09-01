@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -77,7 +79,7 @@
 			
 		<table class="table table-bordered" id="freelancerTable" style="text-align:center;display:none">
           <thead>
-            <tr class="tr-divider">
+            <tr class="bg-light-blue">
               <th class="text-center">Name</th>
               <th class="text-center">Aggregate Rating</th>
               <th class="text-center">Elected</th>
@@ -85,31 +87,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Aritra Banerjee</td>
-              <td>4.5</td>
-              <td>20</td>
-              <td><div contenteditable>0</div></td>
-            </tr>
-            <tr>
-              <td>Nitesh Aarne</td>
-              <td>4</td>
-              <td>40</td>
-              <td><div contenteditable>0</div></td>
-            </tr>
-            <tr>
-              <td>Srutarshi Dutta</td>
-              <td>5</td>
-              <td>30</td>
-              <td><div contenteditable>0</div></td>
-            </tr>
-            <tr class="success">
-              <td>Total</td>
-              <td></td>
-              <td>90</td>
-              <td></td>
-            </tr>
-          </tbody>
+			<c:forEach var="userWorkDetails" items="${userWorkDetailsList}" varStatus="loop">
+				<tr>
+					<td>${userWorkDetails.username}</td>
+					<td>${userWorkDetails.rating}</td>
+					<td>${userWorkDetails.numberOfCasesAccepted}</td>
+					<td><input type="number" onchange="calculateAssigned(this)"
+						class="assignedTextBox" id="completebutton_${loop.index}"
+						placeholder="Count" size="5"></td>
+				</tr>
+			</c:forEach>
+			<tr>
+				<td>Total</td>
+				<td></td>
+				<td>${totalElected}</td>
+				<td id="totalAssigned">${totalAssigned}</td>
+			</tr>
+		</tbody>
 		</table>
 		</div>
 		<div class="row">
@@ -146,12 +140,12 @@ $( document ).ready(function() {
 });
 </script>
 <script type="text/javascript">
-	function calculateAccepted() {
+	function calculateAssigned() {
 		var total = 0;
-		$(".acceptableTextBox").each(function() {
+		$(".assignedTextBox").each(function() {
 			total = Number(total) + Number($(this).val());
 		});
-		$("#totalAccepted").html(total);
+		$("#totalAssigned").html(total);
 	}
 </script>
 </html>
