@@ -123,22 +123,6 @@ public class AdminController {
 		return model;
 	}
 	
-	
-
-	@RequestMapping(value = "/searchWorkDetails", method = RequestMethod.POST, produces = { MediaType.TEXT_HTML_VALUE })
-	public ModelAndView searchPostedWorkDetails(HttpServletRequest httpServletRequest) {
-		System.out.println("In search post work....");
-		logger.info("search post work method starts");
-		ModelAndView model = null;
-		String typeOfWork = null;
-		String dateOfWork = null;
-		try {
-			model = new ModelAndView("assignWork");
-		} catch (Exception e) {
-			logger.equals("Excpetion in searchWorkDetails" + e);
-		}
-		return model;
-	}
 
 	@RequestMapping(value = "/assignWorkPage", method = RequestMethod.POST, produces = { MediaType.TEXT_HTML_VALUE })
 	public ModelAndView assignWorkService(HttpServletRequest httpServletRequest) {
@@ -214,22 +198,30 @@ public class AdminController {
 		userTaskStatus.setJobID(1);
 		userTaskStatus.setTaskAssigned(10);
 		userTaskStatus.setTaskCompleted(8);
-		userTaskStatus.setUserName("John Doe");
+		userTaskStatus.setUserName("Aritra Banerjee");
 		userTaskStatus.setUserID(1);
 
 		UserTaskStatus userTaskStatus1 = new UserTaskStatus();
 		userTaskStatus1.setJobID(2);
 		userTaskStatus1.setTaskAssigned(20);
 		userTaskStatus1.setTaskCompleted(16);
-		userTaskStatus1.setUserName("Jane Doe");
+		userTaskStatus1.setUserName("Nitesh Aarne");
 		userTaskStatus1.setUserID(2);
+		
+		UserTaskStatus userTaskStatus2 = new UserTaskStatus();
+		userTaskStatus2.setJobID(3);
+		userTaskStatus2.setTaskAssigned(30);
+		userTaskStatus2.setTaskCompleted(25);
+		userTaskStatus2.setUserName("Srutarshi Dutta");
+		userTaskStatus2.setUserID(3);
 
 		userTaskStatusList.add(userTaskStatus);
 		userTaskStatusList.add(userTaskStatus1);
+		userTaskStatusList.add(userTaskStatus2);
 
 		model.addObject("userTaskStatusList", userTaskStatusList);
-		model.addObject("totalAssigned", 30);
-		model.addObject("totalCompleted", 24);
+		model.addObject("totalAssigned", 60);
+		model.addObject("totalCompleted", 49);
 		model.addObject("totalAccepted", 0);
 		logger.info("adminReviewFeedback method End ...");
 		return model;
