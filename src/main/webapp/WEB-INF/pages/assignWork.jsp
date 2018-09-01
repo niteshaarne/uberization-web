@@ -63,7 +63,7 @@
 				<tbody>
             		<tr>
 	            		<td class="active">Published</td>
-	              		<td>${totalPublished}</td>
+	              		<td id="totalPublished">${totalPublished}</td>
               		</tr>
               		<tr>
 	            		<td class="active">Unassigned</td>
@@ -142,10 +142,14 @@ $( document ).ready(function() {
 <script type="text/javascript">
 	function calculateAssigned() {
 		var total = 0;
+		var unAssigned = Number($("#totalPublished").text());
+		console.log(unAssigned);
 		$(".assignedTextBox").each(function() {
 			total = Number(total) + Number($(this).val());
+			unAssigned = unAssigned - Number($(this).val());
 		});
 		$("#totalAssigned").html(total);
+		$("#totalUnassigned").html(unAssigned);
 	}
 </script>
 </html>
