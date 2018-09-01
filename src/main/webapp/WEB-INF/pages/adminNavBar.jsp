@@ -17,8 +17,8 @@
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="active" id="publishWork"><a href="adminDashboard">Publish Work <span class="sr-only">(current)</span></a></li>
-				<li id="assignWork"><a href="assignWork">Assign work</a></li>
-				<li id="adminReviewFeedback"><a href="adminReviewFeedback">Review and feedback</a></li>
+				<li id="assignWork"><a href="assignWork">Assign Work</a></li>
+				<li id="adminReviewFeedback"><a href="adminReviewFeedback">Review and Feedback</a></li>
 				<li id="generateReports"><a href="generateReports">Reports</a></li>
 				<li id="manageTeam"><a href="manageTeam">Manage Team</a></li>
 			</ul>
