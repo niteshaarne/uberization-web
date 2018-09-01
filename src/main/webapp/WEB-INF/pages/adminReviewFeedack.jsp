@@ -31,17 +31,56 @@
 		$("#generateReports").removeClass("active");
 		$("#manageTeam").removeClass("active");
 		$("#reviewTable").hide();
+		
+		
 		$("#submit").click(function() {
 			$("#reviewTable").show("slow");
 		});
 
+		calculateTotal();
 	});
 
+	function calculateTotal(){
+		var totalAssigned = 0;
+		$('[id^=taskAssigned_]').each(function() {
+		    var number = this.id.split('_').pop();
+		    if ( $("#tr_"+number).css('display') != 'none' && $("#tr_"+number).css("visibility") != "hidden"){
+		    	  totalAssigned = totalAssigned + Number($("#taskAssigned_"+number).html());
+		    	  
+		    }
+		});
+		
+		var totalCompleted = 0;
+		$('[id^=taskCompleted_]').each(function() {
+		    var number = this.id.split('_').pop();
+		    if ( $("#tr_"+number).css('display') != 'none' && $("#tr_"+number).css("visibility") != "hidden"){
+		    	 totalCompleted = totalCompleted + Number($("#taskCompleted_"+number).html());
+		    }
+		   
+		});
+		
+		$("#totalAssigned").html(totalAssigned);
+		$("#totalCompleted").html(totalCompleted);
+		calculateAccepted();
+	}
+	
+	function signOff(ele){
+		var id = ele.id;
+		var loopCounter = id.substr(id.indexOf("_") + 1);
+		$("#tr_"+loopCounter).hide();
+		calculateTotal()
+	}
+	
+	
 	function calculateAccepted() {
 		var total = 0;
 		$(".acceptableTextBox").each(function() {
-			total = Number(total) + Number($(this).val());
+			var number = this.id.split('_').pop();
+			 if ( $("#tr_"+number).css('display') != 'none' && $("#tr_"+number).css("visibility") != "hidden"){
+				 total = Number(total) + Number($(this).val());
+		     }	
 		});
+		
 		$("#totalAccepted").html(total);
 	}
 </script>
@@ -92,26 +131,25 @@
 
 						<c:forEach var="userTaskStatus" items="${userTaskStatusList}"
 							varStatus="loop">
-							<tr>
+							<tr id="tr_${loop.index}">
 								<td>${userTaskStatus.userName}</td>
-								<td>${userTaskStatus.taskAssigned}</td>
-								<td>${userTaskStatus.taskCompleted}</td>
+								<td id="taskAssigned_${loop.index}">${userTaskStatus.taskAssigned}</td>
+								<td id="taskCompleted_${loop.index}">${userTaskStatus.taskCompleted}</td>
 								<td><input type="number" onchange="calculateAccepted(this)"
 									class="acceptableTextBox" id="completebutton_${loop.index}"
-									placeholder="Acceptable tasks" size="10"></td>
+									></td>
 								<td><input type="number" id="exampleInputlastName"
-									placeholder="Rating" size="10"></td>
+									></td>
 								<td>
-									<button type="button" class="btn btn-primary btn-xs">Sign
-										off</button>
+									<button type="button" id="signOff_${loop.index}" onclick="signOff(this)" class="btn btn-primary btn-xs">Sign off</button>
 								</td>
 							</tr>
 						</c:forEach>
 						<tr>
 							<td>Total</td>
-							<td>${totalAssigned}</td>
-							<td>${totalCompleted}</td>
-							<td id="totalAccepted">${totalCompleted}</td>
+							<td id="totalAssigned"></td>
+							<td id="totalCompleted"></td>
+							<td id="totalAccepted"></td>
 						</tr>
 					</tbody>
 				</table>
