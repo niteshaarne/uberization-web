@@ -33,7 +33,7 @@ function markComplete(ele){
 	$("#jobStatus_"+loopCounter).html("Completed");
 	 $("#jobStatus_"+loopCounter).css("color", "#ec2e19");
 	$("#"+id).prop('disabled', true);
-	$("#"+id).toggleClass('btn-primary btn-default-alt');
+	$("#"+id).toggleClass('btn-primary btn-default');
 	
 }
 </script>
@@ -50,7 +50,7 @@ function markComplete(ele){
 					<thead class="black white-text">
 						<tr class="bg-light-blue">
 							<th scope="col">Date</th>
-							<th scope="col">Task assigned</th>
+							<th scope="col">Task</th>
 							<th scope="col">Status</th>
 							<th scope="col">Actions</th>
 						</tr>
@@ -58,12 +58,29 @@ function markComplete(ele){
 					<tbody>
 						<c:forEach var="userwork" items="${userWorkList}" varStatus="loop">
 							<tr>
-								<td><fmt:formatDate type="both" dateStyle="medium" timeStyle="medium" value="${userwork.jobPostedDate}" /></td>
+								<td><fmt:formatDate pattern="MMM, dd yyyy" value="${userwork.jobPostedDate}" /></td>
 								<td>${userwork.numberOfCasesAssigned}</td>
-								<td id="jobStatus_${loop.index}">${userwork.jobstatus}</td>
+								
+								
+								<td id="jobStatus_${loop.index}">
+									<c:if test="${userwork.jobstatus=='Completed'}">
+										<span style="color:red;">${userwork.jobstatus}</span>
+									</c:if>
+									
+									<c:if test="${userwork.jobstatus!='Completed'}">
+										<span >${userwork.jobstatus}</span>
+									</c:if>
+									
+								</td>
 								<td>
-									<button type="button" id="completebutton_${loop.index}" onclick="markComplete(this)" class="btn btn-primary btn-xs">Mark as complete</button>
-									<button type="button" class="btn btn-primary btn-xs">Cancel</button>
+									<c:if test="${userwork.jobstatus=='Completed'}">
+										<button type="button"  disabled="disabled" id="completebutton_${loop.index}" class="btn btn-default btn-xs" >Done</button>
+									</c:if>
+									
+									<c:if test="${ userwork.jobstatus!='Completed'}">
+										<button type="button" id="completebutton_${loop.index}" onclick="markComplete(this)" class="btn btn-primary btn-xs">Done</button>
+									</c:if>
+									
 								</td>
 							</tr>
 						</c:forEach>

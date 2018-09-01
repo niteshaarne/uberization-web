@@ -1,8 +1,7 @@
 package com.uberization.pojo;
 
 public enum JobStatus {
-	IN_PROGRESS("In Progress"),
-	NOT_STARTED("Not Started"),
+	ASSIGNED("Assigned"),
 	COMPLETED("Completed");
 	private String description;
 

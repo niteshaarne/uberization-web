@@ -77,9 +77,9 @@ public class UserController {
 		ModelAndView model = new ModelAndView("userwork");
 		try {
 			List<UserWork> userWorkList = new ArrayList<UserWork>();
-			UserWork userwork1 = new UserWork(new Date(), 10, JobStatus.COMPLETED.getDescription());
-			UserWork userwork2 = new UserWork(new Date(), 20, JobStatus.NOT_STARTED.getDescription());
-			UserWork userwork3 = new UserWork(new Date(), 30, JobStatus.IN_PROGRESS.getDescription());
+			UserWork userwork1 = new UserWork(new Date(), 10, JobStatus.ASSIGNED.getDescription());
+			UserWork userwork2 = new UserWork(new Date(), 20, JobStatus.ASSIGNED.getDescription());
+			UserWork userwork3 = new UserWork(new Date(), 30, JobStatus.COMPLETED.getDescription());
 			
 			userWorkList.add(userwork1);
 			userWorkList.add(userwork2);
@@ -102,9 +102,9 @@ public class UserController {
 		ModelAndView model = new ModelAndView("feedbackAndRating");
 		try {
 			List<UserWork> userWorkList = new ArrayList<UserWork>();
-			UserWork userwork1 = new UserWork(new Date(), 10, JobStatus.COMPLETED.getDescription());
-			UserWork userwork2 = new UserWork(new Date(), 20, JobStatus.NOT_STARTED.getDescription());
-			UserWork userwork3 = new UserWork(new Date(), 30, JobStatus.IN_PROGRESS.getDescription());
+			UserWork userwork1 = new UserWork(new Date(), 10, JobStatus.ASSIGNED.getDescription());
+			UserWork userwork2 = new UserWork(new Date(), 20, JobStatus.ASSIGNED.getDescription());
+			UserWork userwork3 = new UserWork(new Date(), 30, JobStatus.COMPLETED.getDescription());
 			
 			userwork1.setFeedback("Good");
 			userwork1.setNumberOfCasesAccepted(10);
