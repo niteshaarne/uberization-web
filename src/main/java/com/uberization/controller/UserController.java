@@ -84,7 +84,7 @@ public class UserController {
 		try {
 			List<UserWork> userWorkList = new ArrayList<UserWork>();
 			
-			UserWork userwork1 = new UserWork(new Date(), 10, JobStatus.ASSIGNED.getDescription());
+			UserWork userwork1 = new UserWork(new Date(), 20, JobStatus.ASSIGNED.getDescription());
 			Date dt = new Date();
 			Calendar c = Calendar.getInstance(); 
 			c.setTime(dt); 
