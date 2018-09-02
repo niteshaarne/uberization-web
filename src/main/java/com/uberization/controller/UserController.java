@@ -40,7 +40,7 @@ public class UserController {
 			
 			jobDetailsUser1.setJobDescription("Dental claim staging");
 			jobDetailsUser1.setJobId("1");
-			jobDetailsUser1.setNumberOfCase(10);
+			jobDetailsUser1.setNumberOfCase(100);
 			jobDetailsUser1.setTypeOfWork("Dental claim staging");
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
 		    Date date = new Date();  
