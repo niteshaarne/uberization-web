@@ -9,7 +9,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-principal-brand" href="#"></a>
+			<a class="navbar-principal-brand" href="adminDashboard"></a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->

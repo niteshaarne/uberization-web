@@ -9,7 +9,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-principal-brand" href="#"></a>
+			<a class="navbar-principal-brand" href="notification"></a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
