@@ -75,9 +75,9 @@
 				<div class="form-group">
 					<label>Select Pool</label> <select name="userSelect"
 						id="userSelect" class="form-control">
-						<option value="approvedOption" Selected>Approved</option>
+						<option value="approvedOption">Approved</option>
 						<option value="requestedOption">Requested</option>
-						<option value="inPool">In Pool</option>
+						<option value="inPool" Selected>In Pool</option>
 					</select>
 				</div>
 			</div>
