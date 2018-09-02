@@ -124,7 +124,7 @@ public class UserController {
 			UserWork userwork3 = new UserWork(c.getTime(), 30, JobStatus.COMPLETED.getDescription());
 			
 			userwork1.setFeedback("Good");
-			userwork1.setNumberOfCasesAccepted(10);
+			userwork1.setNumberOfCasesAccepted(20);
 			userwork1.setRating(4);
 			userWorkList.add(userwork1);
 			
